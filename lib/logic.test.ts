@@ -5,7 +5,7 @@ import {
   cellKey, facets, filterProducts, filtersToQuery, fromPrice, fuzzyScore, moveAxis, parseFilters, relatedProducts, stockLevel, withCategory,
 } from "./catalog.ts";
 import { productInputSchema, productsFileSchema, type Product } from "./data/schemas.ts";
-import { dzPhone, orderInputSchema, priceOrder } from "./order.ts";
+import { deliveryFee, dzPhone, orderInputSchema, priceOrder, repriceEdit } from "./order.ts";
 
 const mk = (id: string, brand: string, ram: number, variants: [number, number, number][]): Product => ({
   id, slug: id, category: "phones", brand, model: id, name: `${brand} ${id}`, description: "", images: ["/x.webp"],
@@ -107,6 +107,30 @@ test("order input: delivery needs wilaya + address; tampered prices stripped", (
   const ok = orderInputSchema.parse({ ...base, wilaya: "16", address: "12 rue X, Alger" });
   assert.deepEqual(ok.items, [{ sku: "a-1", qty: 1 }]);
   assert.equal(orderInputSchema.safeParse({ ...base, fulfillment: "pickup" }).success, true);
+  // Stop-desk: a commune is enough, but not nothing.
+  assert.equal(orderInputSchema.safeParse({ ...base, fulfillment: "desk", wilaya: "31", address: "Oran" }).success, true);
+  assert.equal(orderInputSchema.safeParse({ ...base, fulfillment: "desk", wilaya: "31", address: "" }).success, false);
+  assert.equal(orderInputSchema.safeParse({ ...base, wilaya: "31", address: "Oran" }).success, false); // home needs a full address
+});
+
+test("deliveryFee: the wilaya's own fee, else the default; desk off → null", () => {
+  const defaults = { home: 800, desk: 500 };
+  assert.equal(deliveryFee(defaults, {}, false), 800);
+  assert.equal(deliveryFee(defaults, { home: 400, desk: 300 }, false), 400);
+  assert.equal(deliveryFee(defaults, { home: 400 }, true), 500);
+  assert.equal(deliveryFee(defaults, { desk: 300 }, true), 300);
+  assert.equal(deliveryFee({ home: 800 }, { desk: 300 }, true), null);
+  assert.equal(deliveryFee(defaults, { home: 0 }, false), 0); // free delivery is a fee, not a fallback
+});
+
+test("repriceEdit: kept lines keep their price, added ones take the catalog's", () => {
+  const catalog = [a, s].flatMap((product) => product.variants.map((variant) => ({ product, variant })));
+  const label = (p: Product) => p.name;
+  const current = [{ sku: "a-1", qty: 1, unitPrice: 99, label: "old price" }];
+  const r = repriceEdit(current, [{ sku: "a-1", qty: 2 }, { sku: "s-0", qty: 1 }], catalog, label);
+  assert.deepEqual(r, { ok: true, items: [{ sku: "a-1", qty: 2, unitPrice: 99, label: "old price" }, { sku: "s-0", qty: 1, unitPrice: 90, label: "Samsung s" }] });
+  assert.deepEqual(repriceEdit(current, [{ sku: "a-1", qty: 0 }], catalog, label), { ok: false, error: "empty_order" });
+  assert.deepEqual(repriceEdit(current, [{ sku: "nope", qty: 1 }], catalog, label), { ok: false, error: "unknown_sku" });
 });
 
 test("priceOrder: server prices, merges dup SKUs, refuses OOS/unknown", () => {

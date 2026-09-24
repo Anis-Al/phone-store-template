@@ -10,7 +10,7 @@ export async function GET(req: Request) {
   const csv = toCsv([
     ["ref", "date", "status", "fulfillment", "name", "phone", "wilaya", "address", "items", "subtotal", "delivery_fee", "total", "note"],
     ...rows.map((o) => [
-      o.id, o.createdAt, o.status, o.fulfillment, o.customer.name, o.customer.phone, o.customer.wilaya, o.customer.address,
+      o.id, o.createdAt, o.status, o.customer.desk ? "desk" : o.fulfillment, o.customer.name, o.customer.phone, o.customer.wilaya, o.customer.address,
       o.items.map((i) => `${i.qty} x ${i.label} [${i.sku}]`).join(" | "),
       o.totals.subtotal, o.totals.deliveryFee, o.totals.total, o.note,
     ]),

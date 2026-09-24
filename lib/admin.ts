@@ -21,7 +21,7 @@ export function errorKey(e: unknown): TKey {
 const first = (v: unknown) => (Array.isArray(v) ? v[0] : v);
 const opt = <T extends z.ZodType>(s: T) => z.preprocess(first, s.optional()).catch(undefined);
 
-export const PAGE_SIZE = { products: 5, orders: 5, stock: 20 } as const;
+export const PAGE_SIZE = { products: 5, orders: 5, stock: 20, print: 200 } as const;
 
 export const orderQuerySchema = z.object({
   status: opt(z.enum(ORDER_STATUSES)),

@@ -73,6 +73,46 @@ test("status machine: only forward moves; cancel restores stock exactly once", a
   assert.deepEqual((await repo.audit("order", order.id)).map((a) => a.action), ["status", "status"]);
 });
 
+test("call attempts are counted on open orders only", async () => {
+  const { repo } = await setup();
+  const order = await repo.createOrder(draft("X-128"));
+  await repo.logCall(order.id, "no_answer", 1);
+  await repo.logCall(order.id, "callback", 1);
+  const calls = async () => (await repo.listOrders({ page: 1, pageSize: 10 })).rows[0].calls;
+  assert.equal(await calls(), 2);
+  await repo.setOrderStatus(order.id, "cancelled", 1, "faux numéro");
+  await repo.logCall(order.id, "no_answer", 1);
+  assert.equal(await calls(), 2);
+});
+
+test("order edit: stock follows the lines, cancel restores all, stale form and oversell write nothing", async () => {
+  const { repo } = await setup();
+  const order = await repo.createOrder(draft("X-128")); // X-128: 3 → 2
+  const patch = (items: OrderDraft["items"]) => ({
+    items, fulfillment: order.fulfillment, paymentMethod: order.paymentMethod, customer: { ...order.customer, phone: "0666123456" },
+    totals: { subtotal: items.reduce((s, i) => s + i.qty * i.unitPrice, 0), deliveryFee: 0, total: items.reduce((s, i) => s + i.qty * i.unitPrice, 0) },
+  });
+  const two = patch([{ sku: "X-128", qty: 2, unitPrice: 1000, label: "a" }, { sku: "X-256", qty: 1, unitPrice: 1200, label: "b" }]);
+  await repo.updateOrder(order.id, two, order.updatedAt!, 1);
+  assert.deepEqual([await stockOf(repo, "X-128"), await stockOf(repo, "X-256")], [1, 0]);
+  const edited = (await repo.getOrder(order.id))!;
+  assert.deepEqual([edited.items.length, edited.totals.total, edited.customer.phone], [2, 3200, "0666123456"]);
+  assert.deepEqual((await repo.audit("order", order.id)).at(-1)!.diff, {
+    lines: [["a", 1, 2], ["b", 0, 1]], fields: ["phone"], total: [1000, 3200],
+  });
+
+  // The form still holds the first updatedAt: refused, nothing moves.
+  await assert.rejects(repo.updateOrder(order.id, patch([{ sku: "X-128", qty: 1, unitPrice: 1000, label: "a" }]), order.updatedAt!, 1), /conflict/);
+  // X-256 has 0 left: asking for 2 instead of 1 rolls the whole edit back, X-128 included.
+  const greedy = patch([{ sku: "X-128", qty: 1, unitPrice: 1000, label: "a" }, { sku: "X-256", qty: 2, unitPrice: 1200, label: "b" }]);
+  await assert.rejects(repo.updateOrder(order.id, greedy, edited.updatedAt!, 1), /out_of_stock/);
+  assert.deepEqual([await stockOf(repo, "X-128"), await stockOf(repo, "X-256"), (await repo.getOrder(order.id))!.totals.total], [1, 0, 3200]);
+
+  await repo.setOrderStatus(order.id, "cancelled", 1, "test");
+  assert.deepEqual([await stockOf(repo, "X-128"), await stockOf(repo, "X-256")], [3, 1]);
+  await assert.rejects(repo.updateOrder(order.id, two, (await repo.getOrder(order.id))!.updatedAt!, 1), /conflict/); // final order
+});
+
 test("editor stock is a delta: an order placed while editing still counts", async () => {
   const { repo, saved } = await setup();
   const loaded = saved.variants.map((v) => ({ ...v, prevSku: v.sku, stockWas: v.stockQty }));

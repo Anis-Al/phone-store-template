@@ -21,7 +21,7 @@ New-client steps: `TEMPLATE_SETUP.md`.
 - Product `/product/[slug]` (prebuilt): gallery, color × storage picker (out-of-stock combos disabled),
   specs table, sticky mobile buy bar, related products, WhatsApp question link, Product JSON-LD.
 - Cart: Zustand + localStorage, quantity capped by stock; drawer on desktop, `/cart` page on mobile.
-- Checkout `/checkout`: delivery (wilaya + address + flat fee, cash on delivery) or pickup (pay in
+- Checkout `/checkout`: home delivery or stop-desk (wilaya + address or commune, fee per wilaya, cash on delivery) or pickup (pay in
   store), both from config; DZ mobile validation; French error messages.
 - Orders `POST /api/orders`: Zod validation, server-side re-pricing, stock check, refs like `MS-1001`,
   per-IP rate limit; stored by the local adapter in `.data/orders.json`.
@@ -37,7 +37,7 @@ New-client steps: `TEMPLATE_SETUP.md`.
   at order time (CHECK constraint → 409 on a lost race), restored once on cancel.
 - A2 `/admin/login` (scrypt, HMAC cookie, throttle), owner / staff roles, mobile tab bar / desktop sidebar, `/admin/users`.
 - A3 orders: status tabs, search, dates, detail with call / WhatsApp templates, status machine, cancel reason,
-  note, timeline, print slip, CSV export.
+  note, timeline, print slip, CSV export. Order ops O1–O4: call outcomes, batch print, order edit (see plan below).
 - A4 products: inline price / stock rows, editor with color × storage matrix, photos (sharp → WebP, `/media`),
   duplicate, archive; storefront revalidated on save. Category filter; products, orders and stock lists paged.
 - A5 `/admin/stock` (movement log, manual adjustment, CSV import with dry run, export) and dashboard.
@@ -91,6 +91,54 @@ phase (VPS setup script, HTTPS, scheduled backups) is documented in TEMPLATE_SET
 - `/admin` is a 404 unless `DATA_ADAPTER=db`; it needs `SESSION_SECRET` (≥ 32 chars). Uploaded photos live
   in `UPLOAD_DIR` (default `.data/uploads`) and are served by `app/media/[...path]`, not `public/`.
 
+## Plan: order ops (O1–O4, September 2026) — done
+
+Requested after the order-page UX pass; all four built and tested (`npm test` 28, CHANGELOG "Order ops O1–O4").
+The notes below are as built and double as the code notes for these features.
+No migration: call outcomes and edits are `audit` rows, stop-desk is a flag in the `customer` JSON.
+
+- [x] **O1 Call outcomes.** On a non-final order, the customer box gets "Pas de réponse" / "Rappeler plus tard"
+  next to *Appeler*.
+  - Data: `audit` row `action = 'call'`, `diff = { outcome: 'no_answer' | 'callback' }`. Adapter `logCall(id, outcome, by)`
+    inserts nothing on a final order (`WHERE status NOT IN ('done','cancelled')`).
+  - `listOrders` rows gain `calls` (subquery on `audit`); open orders in the list show "2 appels" in warning color.
+  - Timeline shows the outcome and the user. WhatsApp: a `new` order with ≥ 1 call uses a new `wa.noAnswer`
+    template ("nous avons essayé de vous joindre…").
+  - Action `logCall` (staff) → `lib/security.test.ts` MATRIX. Test: two calls → `calls = 2`; a call on a cancelled
+    order is ignored.
+- [x] **O2 Batch print.** `/admin/orders/print` takes the list's query (all pages; ponytail cap 200) and prints one slip
+  per page.
+  - Slip markup moves to `components/admin/OrderSlip.tsx`; the order page prints the same component
+    (`hidden print:block`) and hides everything else.
+  - "Imprimer les bons (n)" button on the *Prête* tab. The page calls `requireRole()`.
+- [x] **O3 Delivery fee per wilaya + stop-desk.**
+  - `content/wilayas.json` entries get optional `home` / `desk` fees (DA, copied from the carrier's grid).
+    Config `commerce.deliveryFeeFlat` → `commerce.deliveryFees: { home, desk? }`: defaults for wilayas without a
+    fee; no `desk` = no stop-desk option.
+  - `deliveryFee(defaults, wilaya, desk)` in `lib/order.ts` (plain Node, tested). `lib/wilayas.ts` parses the file
+    once and holds `deskEnabled`, `feeFrom(desk)` ("800 DA" or "dès 400 DA") and `resolveDelivery(mode, code, address)`:
+    the only server-side rule turning a mode into fulfillment / payment / fee / customer fields (API and order edit).
+  - Checkout: form field `fulfillment` is `delivery | desk | pickup`; three choices when desk is on; the summary fee
+    follows the wilaya ("Selon la wilaya" before one is picked). Desk asks for a commune (≥ 2 chars).
+  - Order: `fulfillment` stays `delivery` (COD) plus `customer.desk: true`. Labels come from `fulfillmentLabel(order)`
+    (`lib/i18n.ts`): admin list, order page, slip; CSV writes `desk`; confirmation WhatsApp uses `waDesk`.
+  - Demo: Alger 400 / 300, Blida, Boumerdès, Tipaza 500 / 400; other wilayas use the defaults 800 / 500.
+- [x] **O4 Edit order** (status `new` or `confirmed`). `/admin/orders/[id]/edit`, a plain server form (no client state):
+  - Customer: name, phone, mode (domicile / bureau / boutique), wilaya, address. Items: a qty per line (0 = remove)
+    and one "add SKU" field (`<datalist>` of live variants); save again to add another.
+  - Pricing (`repriceEdit` in `lib/order.ts`, tested): kept SKUs keep their ordered unit price and label; added SKUs
+    take the current catalog price. Fee unchanged unless mode or wilaya changed, then `deliveryFee`. At least one
+    line remains (otherwise cancel the order).
+  - Adapter `updateOrder(id, patch, was, by)`: one batch guarded by `updated_at = :was AND status IN ('new','confirmed')`
+    (stale form → `conflict`). Stock deltas are `reason = 'order'` movements with the order id, so a later cancel
+    still restores exactly what the order holds; the stock CHECK aborts the batch → `out_of_stock`. Rewrites
+    `order_items`, totals, customer, fulfillment, payment; audit `edit` with the changed lines, fields and total.
+  - "Modifier" link in the order page's customer and items headers (`canEdit(status)`, `lib/order.ts`). Action
+    `saveOrder` (staff) parses the customer with `checkoutFormSchema`, prices with `repriceEdit`, then redirects to
+    the order. The datalist lists in-stock variants only. Timeline: "Commande modifiée" + changed lines / fields / total.
+    Tests: qty up / down moves stock, cancel after an edit restores everything, stale `was` → conflict,
+    out of stock → nothing written.
+
 ## Code notes
 
 Kept here instead of as code comments, one subsection per feature. `ponytail:` markers stay in the code.
@@ -105,7 +153,7 @@ Kept here instead of as code comments, one subsection per feature. `ponytail:` m
 
 - `Pager` (`components/admin/Pager.tsx`): prev / next links for orders, stock and products; the current filters stay
   in the URL (`withQuery`). Tabs and the filter form drop `page`, so a new filter starts on page 1.
-- Page sizes live only in `PAGE_SIZE` (`lib/admin.ts`): products 5, orders 5, stock movements 20. Orders and
+- Page sizes live only in `PAGE_SIZE` (`lib/admin.ts`): products 5, orders 5, stock movements 20, batch print 200. Orders and
   stock pass theirs to the adapter (`pageSize`, required); products are sliced in the page after `listProducts`
   loads and filters them all. An out-of-range products `?page=` shows the last page.
 

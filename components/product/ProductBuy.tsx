@@ -10,6 +10,7 @@ import { storeConfig } from "@/lib/config/store.config";
 import type { Product, Variant } from "@/lib/data/schemas";
 import { formatPrice, t, variantLabel } from "@/lib/i18n";
 import { whatsappLink } from "@/lib/utils";
+import { feeFrom } from "@/lib/wilayas";
 import { Gallery } from "./Gallery";
 import { StockBadge } from "./StockBadge";
 import { VariantPicker } from "./VariantPicker";
@@ -74,7 +75,7 @@ export function ProductBuy({ product }: { product: Product }) {
         <ul className="flex flex-col gap-2 text-sm text-text-muted">
           {commerce.deliveryEnabled && (
             <li className="flex items-center gap-2">
-              <Truck aria-hidden size={18} /> {t("product.deliveryInfo", { fee: formatPrice(commerce.deliveryFeeFlat) })}
+              <Truck aria-hidden size={18} /> {t("product.deliveryInfo", { fee: feeFrom(false) })}
             </li>
           )}
           {commerce.pickupEnabled && (

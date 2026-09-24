@@ -61,3 +61,7 @@ export const formatStorage = (gb: number) =>
 
 export const variantLabel = (color: string, storage?: number | null) =>
   storage ? `${color} · ${formatStorage(storage)}` : color;
+
+/** "Livraison à domicile" / "Livraison au bureau (stop-desk)" / "Retrait en boutique" (admin list, order page, slip). */
+export const fulfillmentLabel = (o: { fulfillment: string; customer: { desk?: boolean } }) =>
+  t(o.fulfillment === "pickup" ? "admin.orders.pickup" : o.customer.desk ? "admin.orders.desk" : "admin.orders.delivery");

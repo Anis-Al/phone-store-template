@@ -55,6 +55,7 @@ export const productsFileSchema = z.array(
 );
 
 export const ORDER_STATUSES = ["new", "confirmed", "ready", "done", "cancelled"] as const;
+export const CALL_OUTCOMES = ["no_answer", "callback"] as const;
 
 export const orderSchema = z.object({
   id: z.string(), // human ref, e.g. MS-1042
@@ -66,7 +67,8 @@ export const orderSchema = z.object({
     name: z.string(),
     phone: z.string(),
     wilaya: z.string().optional(),
-    address: z.string().optional(),
+    address: z.string().optional(), // the commune for stop-desk
+    desk: z.boolean().optional(), // delivery to the carrier's office (stop-desk) instead of the door
   }),
   paymentMethod: z.enum(["cod", "instore"]),
   status: z.enum(ORDER_STATUSES),
@@ -116,5 +118,6 @@ export type Product = z.infer<typeof productSchema>;
 export type Condition = Product["condition"];
 export type Order = z.infer<typeof orderSchema>;
 export type OrderStatus = Order["status"];
+export type CallOutcome = (typeof CALL_OUTCOMES)[number];
 export type OrderDraft = Omit<Order, "id" | "status" | "createdAt" | "updatedAt" | "note">;
 export type ProductInput = z.infer<typeof productInputSchema>;

@@ -1,9 +1,8 @@
 import { revalidatePath } from "next/cache";
-import wilayas from "@/content/wilayas.json";
-import { storeConfig } from "@/lib/config/store.config";
 import { repo } from "@/lib/data/repository";
 import { variantLabel } from "@/lib/i18n";
 import { orderInputSchema, OutOfStockError, priceOrder } from "@/lib/order";
+import { resolveDelivery } from "@/lib/wilayas";
 
 // ponytail: in-memory, per-instance sliding window. Swap for Upstash/Redis when running >1 instance.
 const WINDOW_MS = 10 * 60_000;
@@ -34,14 +33,11 @@ export async function POST(req: Request) {
   if (!parsed.success) return fail("invalid", 400, { issues: parsed.error.issues.map((i) => i.path.join(".")) });
   const input = parsed.data;
 
-  const { commerce } = storeConfig;
-  const delivery = input.fulfillment === "delivery";
-  if (delivery ? !commerce.deliveryEnabled : !commerce.pickupEnabled) return fail("fulfillment_disabled", 400);
-  const wilaya = delivery ? wilayas.find((w) => w.code === input.wilaya) : undefined;
-  if (delivery && !wilaya) return fail("invalid", 400, { issues: ["wilaya"] });
+  const d = resolveDelivery(input.fulfillment, input.wilaya, input.address);
+  if (d.error) return d.error === "wilaya" ? fail("invalid", 400, { issues: ["wilaya"] }) : fail(d.error, 400);
 
   const catalog = await repo.getVariants(input.items.map((i) => i.sku));
-  const priced = priceOrder(input.items, catalog, delivery ? commerce.deliveryFeeFlat : 0, (p, v) =>
+  const priced = priceOrder(input.items, catalog, d.fee, (p, v) =>
     `${p.name} · ${variantLabel(v.color.name, v.storage)}`,
   );
   if (!priced.ok) return fail(priced.error, 409, { sku: priced.sku });
@@ -51,13 +47,9 @@ export async function POST(req: Request) {
     order = await repo.createOrder({
       items: priced.items,
       totals: priced.totals,
-      fulfillment: input.fulfillment,
-      paymentMethod: delivery ? "cod" : "instore",
-      customer: {
-        name: input.name,
-        phone: input.phone,
-        ...(wilaya && { wilaya: `${wilaya.code} - ${wilaya.name}`, address: input.address }),
-      },
+      fulfillment: d.fulfillment,
+      paymentMethod: d.paymentMethod,
+      customer: { name: input.name, phone: input.phone, ...d.where },
     });
   } catch (e) {
     if (e instanceof OutOfStockError) return fail("out_of_stock", 409, { sku: e.sku }); // lost the race for the last unit

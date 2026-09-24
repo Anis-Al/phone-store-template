@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Store, Truck } from "lucide-react";
+import { Building2, Store, Truck } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -13,7 +13,8 @@ import { cartSubtotal, useCart, useHydrated } from "@/lib/cart";
 import { storeConfig } from "@/lib/config/store.config";
 import type { Order } from "@/lib/data/schemas";
 import { dayRange, formatPrice, t, type TKey } from "@/lib/i18n";
-import { checkoutFormSchema } from "@/lib/order";
+import { checkoutFormSchema, deliveryFee } from "@/lib/order";
+import { deskEnabled, feeFrom, wilayas } from "@/lib/wilayas";
 
 type In = z.input<typeof checkoutFormSchema>;
 type Out = z.output<typeof checkoutFormSchema>;
@@ -26,7 +27,7 @@ const API_ERRORS: Record<string, TKey> = {
   unknown_sku: "errors.stock",
 };
 
-export function CheckoutForm({ wilayas }: { wilayas: { code: string; name: string }[] }) {
+export function CheckoutForm() {
   const router = useRouter();
   const hydrated = useHydrated();
   const stored = useCart((s) => s.lines);
@@ -47,9 +48,14 @@ export function CheckoutForm({ wilayas }: { wilayas: { code: string; name: strin
   });
 
   const lines = hydrated ? stored : [];
-  const delivery = useWatch({ control, name: "fulfillment" }) === "delivery";
+  const mode = useWatch({ control, name: "fulfillment" });
+  const delivery = mode !== "pickup";
+  const desk = mode === "desk";
+  const wilayaCode = useWatch({ control, name: "wilaya" });
+  const wilaya = wilayas.find((w) => w.code === wilayaCode);
   const subtotal = cartSubtotal(lines);
-  const fee = delivery ? commerce.deliveryFeeFlat : 0;
+  const fee = delivery && wilaya ? (deliveryFee(commerce.deliveryFees, wilaya, desk) ?? 0) : 0;
+  const feeKnown = !delivery || !!wilaya; // the server re-computes it anyway
   const err = (k: keyof In) => (errors[k]?.message ? t(errors[k].message as TKey) : undefined);
   const aria = (k: keyof In, hint?: boolean) => ({
     "aria-invalid": !!errors[k],
@@ -92,8 +98,9 @@ export function CheckoutForm({ wilayas }: { wilayas: { code: string; name: strin
       value: "delivery",
       icon: Truck,
       label: t("checkout.delivery"),
-      hint: t("checkout.deliveryHint", { fee: formatPrice(commerce.deliveryFeeFlat) }),
+      hint: t("checkout.deliveryHint", { fee: feeFrom(false) }),
     },
+    deskEnabled && { value: "desk", icon: Building2, label: t("checkout.desk"), hint: t("checkout.deskHint", { fee: feeFrom(true) }) },
     commerce.pickupEnabled && { value: "pickup", icon: Store, label: t("checkout.pickup"), hint: t("checkout.pickupHint") },
   ].filter((m) => !!m);
 
@@ -148,11 +155,16 @@ export function CheckoutForm({ wilayas }: { wilayas: { code: string; name: strin
                   ))}
                 </select>
               </Field>
-              <Field id="address" label={t("checkout.address")} error={err("address")} hint={t("checkout.addressHint")}>
+              <Field
+                id="address"
+                label={t(desk ? "checkout.commune" : "checkout.address")}
+                error={err("address")}
+                hint={t(desk ? "checkout.communeHint" : "checkout.addressHint")}
+              >
                 <textarea
                   id="address"
-                  rows={3}
-                  autoComplete="street-address"
+                  rows={desk ? 1 : 3}
+                  autoComplete={desk ? "address-level2" : "street-address"}
                   {...register("address")}
                   {...aria("address", true)}
                   className={inputClass(!!errors.address)}
@@ -205,7 +217,7 @@ export function CheckoutForm({ wilayas }: { wilayas: { code: string; name: strin
           </div>
           <div className="flex justify-between">
             <dt>{t("checkout.deliveryFee")}</dt>
-            <dd className="tabular-nums">{fee ? formatPrice(fee) : t("checkout.free")}</dd>
+            <dd className="tabular-nums">{!feeKnown ? t("checkout.feeByWilaya") : fee ? formatPrice(fee) : t("checkout.free")}</dd>
           </div>
           <div className="mt-2 flex justify-between text-lg font-semibold">
             <dt>{t("checkout.total")}</dt>

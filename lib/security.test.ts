@@ -26,7 +26,7 @@ function roles(file: string) {
 // Who may do what. staff = any signed-in user; owner = owner only.
 const MATRIX: Record<string, Record<string, string>> = {
   "app/admin/login/actions.ts": { login: "-", logout: "-" }, // they create / drop the session
-  "app/admin/(panel)/orders/actions.ts": { setStatus: "staff", saveNote: "staff" },
+  "app/admin/(panel)/orders/actions.ts": { setStatus: "staff", saveOrder: "staff", logCall: "staff", saveNote: "staff" },
   "app/admin/(panel)/products/actions.ts": { saveVariant: "staff", setArchived: "owner", saveProduct: "owner", uploadImage: "owner" },
   "app/admin/(panel)/stock/actions.ts": { adjustStock: "staff", previewImport: "owner", applyImport: "owner" },
   "app/admin/(panel)/users/actions.ts": { createUser: "owner", updateUser: "owner" },

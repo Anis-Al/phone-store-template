@@ -41,7 +41,8 @@ export const storeConfigSchema = z.object({
       deliveryEnabled: z.boolean(),
       pickupEnabled: z.boolean(),
       codEnabled: z.boolean(),
-      deliveryFeeFlat: z.number().int().nonnegative(),
+      // Defaults for wilayas without their own fee in content/wilayas.json. No `desk` = no stop-desk option.
+      deliveryFees: z.object({ home: z.number().int().nonnegative(), desk: z.number().int().nonnegative().optional() }),
     })
     .refine((c) => c.deliveryEnabled || c.pickupEnabled, "enable delivery or pickup")
     .refine((c) => !c.deliveryEnabled || c.codEnabled, "delivery needs COD (card payments are v2)"),

@@ -36,7 +36,7 @@ export const storeConfig = storeConfigSchema.parse({
     deliveryEnabled: true,
     pickupEnabled: true,
     codEnabled: true,
-    deliveryFeeFlat: 800,
+    deliveryFees: { home: 800, desk: 500 }, // home = at the door, desk = carrier's office (stop-desk)
   },
   features: {
     showUsedPhones: true,

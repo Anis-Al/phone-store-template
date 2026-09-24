@@ -28,7 +28,7 @@ Validated by Zod at build time: a typo fails `npm run build` with the exact fiel
 - `locale`: `fr` (default), `en`, or `ar`. `ar` is a stub that switches the page to RTL; finish `content/locales/ar.json` first.
 - `identity`: `name`, `logo` (path under `/public`), `tagline`.
 - `contact`: display `phone`, `whatsapp` (international digits only, e.g. `213555123456`), `email`, `address`, optional `geo`, `mapEmbedUrl` (`https://www.google.com/maps?q=LAT,LNG&z=16&output=embed`), `mapUrl`, `hours` (days `Mo`…`Su`, listed in consecutive order).
-- `commerce`: `currency`, `orderPrefix` (for refs like `MS-1042`), `deliveryEnabled` / `pickupEnabled` (at least one), `codEnabled` (required when delivery is on), `deliveryFeeFlat`.
+- `commerce`: `currency`, `orderPrefix` (for refs like `MS-1042`), `deliveryEnabled` / `pickupEnabled` (at least one), `codEnabled` (required when delivery is on), `deliveryFees: { home, desk? }`: default fees (DA) for wilayas without their own in `content/wilayas.json`; leave out `desk` to hide stop-desk (delivery to the carrier's office).
 - `features`: `showUsedPhones` (off = used phones disappear everywhere, including the API), `showPromoBanner`, `showStockCount` (exact "3 left" or just "Low stock").
 - `categories`: what the store sells, e.g. `phones` + `accessories`. Each has a `slug`, a menu `label` and
   `specs` (the admin editor shows the phone spec sheet and starts new products with a storage row). The first one is
@@ -83,7 +83,9 @@ Tested: a required-tokens-only file (Starbucks palette, serif headings) built an
 - `locales/*.json`: every UI string. The store-specific marketing copy is `home.trust.*` and `product.deliveryInfo`.
 - `pages/about.<locale>.md`, `pages/warranty.<locale>.md`: the first `# ` line is the page title.
   `{{store}}`, `{{phone}}`, `{{email}}`, `{{address}}` and `{{orderPrefix}}` are filled in from the config.
-- `wilayas.json`: delivery regions (the 58 Algerian wilayas).
+- `wilayas.json`: delivery regions (the 58 Algerian wilayas). Copy the carrier's price grid in: an optional
+  `"home"` and `"desk"` fee per wilaya (`{ "code": "16", "name": "Alger", "home": 400, "desk": 300 }`); wilayas
+  without one use `commerce.deliveryFees`. Validated at build.
 
 ## 6. Verify and deploy
 

@@ -1,3 +1,4 @@
+import { Printer } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader } from "@/components/admin/PageHeader";
@@ -9,7 +10,8 @@ import { inputClass } from "@/components/ui/field";
 import { orderQuerySchema, PAGE_SIZE, withQuery } from "@/lib/admin";
 import { requireRole } from "@/lib/auth";
 import { ORDER_STATUSES } from "@/lib/data/schemas";
-import { formatDate, formatPrice, t } from "@/lib/i18n";
+import { formatDate, formatPrice, fulfillmentLabel, t } from "@/lib/i18n";
+import { NEXT_STATUS } from "@/lib/order";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = { title: t("admin.orders.title") };
@@ -26,6 +28,12 @@ export default async function OrdersPage({ searchParams }: PageProps<"/admin/ord
     <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-5 md:px-6">
       <RefreshOnFocus />
       <PageHeader title={t("admin.orders.title")}>
+        {q.status === "ready" && total > 0 && (
+          <Link href={`/admin/orders/print${withQuery(q, { page: undefined })}`} className={buttonClass({ variant: "secondary" })}>
+            <Printer className="size-5" aria-hidden />
+            {t("admin.orders.printAll", { n: total })}
+          </Link>
+        )}
         <a href={`/admin/orders/export${withQuery(q, { page: undefined })}`} className={buttonClass({ variant: "secondary" })} download>
           {t("admin.common.exportCsv")}
         </a>
@@ -83,13 +91,16 @@ export default async function OrdersPage({ searchParams }: PageProps<"/admin/ord
                 <span className="flex items-center gap-2">
                   <span className="font-semibold">{o.id}</span>
                   <StatusBadge status={o.status} />
+                  {o.calls > 0 && NEXT_STATUS[o.status].length > 0 && (
+                    <span className="text-sm text-warning">{t("admin.orders.calls", { n: o.calls })}</span>
+                  )}
                   <span className="ms-auto font-semibold tabular-nums">{formatPrice(o.totals.total)}</span>
                 </span>
                 <span>
                   {o.customer.name} <span className="text-text-muted">· {o.customer.phone}</span>
                 </span>
                 <span className="text-sm text-text-muted">
-                  {formatDate(o.createdAt)} · {t(o.fulfillment === "delivery" ? "admin.orders.delivery" : "admin.orders.pickup")}
+                  {formatDate(o.createdAt)} · {fulfillmentLabel(o)}
                   {o.customer.wilaya && ` · ${o.customer.wilaya}`}
                 </span>
                 <span className="truncate text-sm">{o.items.map((i) => `${i.qty} × ${i.label}`).join(", ")}</span>

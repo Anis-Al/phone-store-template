@@ -3,7 +3,7 @@ import { categorySlugs, storeConfig } from "@/lib/config/store.config";
 import { openDb } from "@/lib/db/client";
 import { createDbAdapter } from "./adapters/db";
 import { localAdapter } from "./adapters/local";
-import type { Order, OrderDraft, OrderStatus, Product, ProductInput, Variant } from "./schemas";
+import type { CallOutcome, Order, OrderDraft, OrderStatus, Product, ProductInput, Variant } from "./schemas";
 
 /**
  * The only door to data. Components/pages call `repo`, never an adapter or JSON file.
@@ -46,11 +46,19 @@ export interface AdminRepository extends Repository {
   /** One transaction for all rows (inline row save, CSV import). */
   updateVariants(changes: VariantChange[], reason: "manual" | "import" | "edit", by: UserId, note?: string): Promise<void>;
   listVariants(): Promise<VariantRow[]>;
-  listOrders(q: OrderQuery): Promise<{ rows: Order[]; total: number; counts: Record<OrderStatus, number> }>;
+  /** `calls` = logged call attempts (`logCall`). */
+  listOrders(q: OrderQuery): Promise<{ rows: (Order & { calls: number })[]; total: number; counts: Record<OrderStatus, number> }>;
   getOrder(id: string): Promise<Order | null>;
   /** State machine (lib/order.ts). Cancelling restores reserved stock exactly once. */
   setOrderStatus(id: string, next: OrderStatus, by: UserId, note?: string): Promise<void>;
   setOrderNote(id: string, note: string, by: UserId): Promise<void>;
+  /**
+   * Order edit (status new / confirmed) in one transaction: stock deltas as `order` movements, items, totals,
+   * customer, audit `edit`. `was` = the updatedAt the form loaded; anything newer → Error("conflict").
+   */
+  updateOrder(id: string, patch: Pick<Order, "items" | "totals" | "fulfillment" | "paymentMethod" | "customer">, was: string, by: UserId): Promise<void>;
+  /** Audit row `call`; ignored on a done / cancelled order. */
+  logCall(id: string, outcome: CallOutcome, by: UserId): Promise<void>;
   audit(entity: string, entityId: string): Promise<AuditEntry[]>;
   stockMovements(q: { sku?: string; reason?: StockReason; page: number; pageSize: number }): Promise<{ rows: StockMovement[]; total: number }>;
   dashboard(): Promise<{

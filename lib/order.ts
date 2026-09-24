@@ -13,8 +13,19 @@ export const dzPhone = z
 /** 0555123456 → 213555123456 (wa.me format). */
 export const dzPhoneIntl = (phone: string) => `213${phone.replace(/\D/g, "").slice(-9)}`;
 
+const fee = z.number().int().nonnegative();
+/** content/wilayas.json row: optional fees (DA) override the config defaults for that wilaya. */
+export const wilayaSchema = z.object({ code: z.string().regex(/^\d{2}$/), name: z.string().min(1), home: fee.optional(), desk: fee.optional() });
+export type Wilaya = z.infer<typeof wilayaSchema>;
+
+/** The wilaya's own fee, else the config default. null = stop-desk is off (no `deliveryFees.desk`). */
+export function deliveryFee(defaults: { home: number; desk?: number }, wilaya: Pick<Wilaya, "home" | "desk">, desk: boolean) {
+  if (!desk) return wilaya.home ?? defaults.home;
+  return defaults.desk === undefined ? null : (wilaya.desk ?? defaults.desk);
+}
+
 const base = z.object({
-  fulfillment: z.enum(["delivery", "pickup"]),
+  fulfillment: z.enum(["delivery", "desk", "pickup"]), // desk = delivered to the carrier's office (stop-desk), still COD
   name: z.string().trim().min(2, "errors.name").max(80, "errors.name"),
   phone: dzPhone,
   wilaya: z.string().optional(),
@@ -23,10 +34,12 @@ const base = z.object({
 
 type Base = z.infer<typeof base>;
 const requireAddress = (v: Base, ctx: z.RefinementCtx) => {
-  if (v.fulfillment !== "delivery") return;
+  if (v.fulfillment === "pickup") return;
   if (!v.wilaya) ctx.addIssue({ code: "custom", path: ["wilaya"], message: "errors.wilaya" });
-  if (!v.address || v.address.length < 5)
-    ctx.addIssue({ code: "custom", path: ["address"], message: "errors.address" });
+  // Stop-desk only needs the commune (the office is picked with the customer on the phone).
+  const desk = v.fulfillment === "desk";
+  if ((v.address?.length ?? 0) < (desk ? 2 : 5))
+    ctx.addIssue({ code: "custom", path: ["address"], message: desk ? "errors.commune" : "errors.address" });
 };
 
 export const checkoutFormSchema = base.superRefine(requireAddress);
@@ -68,6 +81,34 @@ export function priceOrder(
   const subtotal = lines.reduce((s, l) => s + l.unitPrice * l.qty, 0);
   return { ok: true, items: lines, totals: { subtotal, deliveryFee, total: subtotal + deliveryFee } };
 }
+
+/**
+ * Order edit (admin): kept SKUs keep the price and label they were ordered at, added SKUs take the catalog's.
+ * `wanted` has one entry per SKU; qty 0 drops the line. Stock is checked by the database, not here.
+ */
+export function repriceEdit(
+  current: Order["items"],
+  wanted: { sku: string; qty: number }[],
+  catalog: { product: Product; variant: Variant }[],
+  label: (p: Product, v: Variant) => string,
+): { ok: true; items: Order["items"] } | { ok: false; error: "unknown_sku" | "empty_order" } {
+  const items: Order["items"] = [];
+  for (const { sku, qty } of wanted) {
+    if (!qty) continue;
+    const kept = current.find((i) => i.sku === sku);
+    if (kept) {
+      items.push({ ...kept, qty });
+      continue;
+    }
+    const hit = catalog.find((c) => c.variant.sku === sku);
+    if (!hit) return { ok: false, error: "unknown_sku" };
+    items.push({ sku, qty, unitPrice: hit.variant.priceOverride ?? hit.product.basePrice, label: label(hit.product, hit.variant) });
+  }
+  return items.length ? { ok: true, items } : { ok: false, error: "empty_order" };
+}
+
+/** Items, customer and delivery can still change (nothing packed yet). */
+export const canEdit = (s: OrderStatus) => s === "new" || s === "confirmed";
 
 /** Order status machine. `done` and `cancelled` are final; cancelling restores reserved stock once. */
 export const NEXT_STATUS: Record<OrderStatus, readonly OrderStatus[]> = {

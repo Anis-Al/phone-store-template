@@ -179,3 +179,21 @@
 - Final run (production build, Lighthouse mobile): admin pages accessibility 100 at 375 px (login, dashboard,
   orders, order, products, editor, stock, users); storefront unchanged: performance 91–95, accessibility,
   best practices and SEO 100 (checkout SEO 66, `noindex` on purpose). Lint and typecheck clean.
+
+## Order ops O1–O4 (September 2026)
+- O1 call outcomes: "Pas de réponse" / "Rappeler plus tard" on open orders (`audit` rows `call`); count in the
+  order list and on the order; WhatsApp switches to a "we tried to call you" message on a new order with calls.
+- O2 batch print: `/admin/orders/print` prints every slip of the list's filter, one per page (button on the
+  *Prête* tab, cap `PAGE_SIZE.print` = 200). One slip component (`OrderSlip`) for the order page and the batch.
+- O3 delivery fees: per-wilaya `home` / `desk` fees in `content/wilayas.json`, config defaults in
+  `commerce.deliveryFees` (replaces `deliveryFeeFlat`); stop-desk as a third checkout mode (commune only, COD,
+  `customer.desk`); fee shown per wilaya at checkout, "dès X DA" on the product page. `resolveDelivery()` is the
+  one server-side rule for checkout and order edits.
+- O4 order edit (`/admin/orders/[id]/edit`, new / confirmed orders): quantities, added SKUs, customer, mode and
+  wilaya. Kept lines keep their price; stock moves as `order` movements so cancel still restores exactly; one
+  guarded batch (stale form → conflict, oversell → nothing written); audit `edit` with the changed lines.
+- Earlier the same week: status actions in the order header with a cancel popover, cleaner print slip, pointer
+  cursor on buttons, installable admin (manifest + PNG icons from the logo), `home.hero` config (product slug or
+  custom banner), featured products from any category.
+- `npm test` (28): call count, order edit (stock, conflict, rollback, cancel after edit), `repriceEdit`,
+  `deliveryFee`, stop-desk validation.

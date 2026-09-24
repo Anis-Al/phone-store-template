@@ -26,7 +26,7 @@ export function waSummary(o: Order) {
     t("confirmation.waHello", { store, ref: o.id }),
     ...o.items.map((i) => `• ${i.qty}× ${i.label} — ${formatPrice(i.unitPrice * i.qty)}`),
     o.fulfillment === "delivery"
-      ? t("confirmation.waDelivery", { wilaya: o.customer.wilaya ?? "", address: o.customer.address ?? "" })
+      ? t(o.customer.desk ? "confirmation.waDesk" : "confirmation.waDelivery", { wilaya: o.customer.wilaya ?? "", address: o.customer.address ?? "" })
       : t("confirmation.waPickup"),
     t("confirmation.waTotal", { total: formatPrice(o.totals.total) }),
     t("confirmation.waName", { name: o.customer.name }),

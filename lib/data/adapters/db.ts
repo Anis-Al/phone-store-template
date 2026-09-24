@@ -1,7 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { LibsqlBatchError, type Client, type InArgs, type InStatement, type Row } from "@libsql/client";
 import { filterProducts, fuzzyScore, withCategory } from "../../catalog.ts";
-import { canTransition, OutOfStockError } from "../../order.ts";
+import { canEdit, canTransition, OutOfStockError } from "../../order.ts";
 import type { AdminProduct, AdminRepository, AdminUser, OrderQuery, StockReason, VariantRow } from "../repository";
 import { ORDER_STATUSES, orderSchema, productSchema, type Order, type OrderStatus } from "../schemas.ts";
 
@@ -402,14 +402,18 @@ export function createDbAdapter(db: Client, orderPrefix: string, categories: rea
       const filter = where.join(" AND ");
       const [rows, total, counts] = await db.batch(
         [
-          { sql: `SELECT * FROM orders WHERE ${filter} ORDER BY seq DESC LIMIT ${size} OFFSET ${offset}`, args },
+          {
+            sql: `SELECT *, (SELECT COUNT(*) FROM audit a WHERE a.entity = 'order' AND a.entity_id = orders.id AND a.action = 'call') AS calls
+                  FROM orders WHERE ${filter} ORDER BY seq DESC LIMIT ${size} OFFSET ${offset}`,
+            args,
+          },
           { sql: `SELECT COUNT(*) AS n FROM orders WHERE ${filter}`, args },
           "SELECT status, COUNT(*) AS n FROM orders GROUP BY status",
         ],
         "read",
       );
       return {
-        rows: await loadOrders(rows.rows),
+        rows: (await loadOrders(rows.rows)).map((o, i) => ({ ...o, calls: Number(rows.rows[i].calls) })),
         total: Number(total.rows[0].n),
         counts: Object.fromEntries(
           ORDER_STATUSES.map((st) => [st, Number(counts.rows.find((r) => r.status === st)?.n ?? 0)]),
@@ -464,6 +468,82 @@ export function createDbAdapter(db: Client, orderPrefix: string, categories: rea
         ],
         "write",
       );
+    },
+
+    async updateOrder(id, patch, was, by) {
+      const order = await api.getOrder(id);
+      if (!order) throw new Error("not_found");
+      if (!canEdit(order.status) || order.updatedAt !== was) throw new Error("conflict");
+      // updated_at is the edit version: always move it past `was`, even within the same millisecond.
+      const base = { id, was, by, at: new Date(Math.max(Date.now(), Date.parse(was) + 1)).toISOString() };
+      // Every statement re-checks this, so a status change or another edit in between writes nothing.
+      const still = "EXISTS (SELECT 1 FROM orders WHERE id = :id AND updated_at = :was AND status IN ('new', 'confirmed'))";
+      const qty = (items: Order["items"]) => new Map(items.map((i) => [i.sku, i.qty]));
+      const [before, after] = [qty(order.items), qty(patch.items)];
+      const skus = [...new Set([...before.keys(), ...after.keys()])];
+      const stmts: InStatement[] = [];
+      for (const sku of skus) {
+        const reserve = (after.get(sku) ?? 0) - (before.get(sku) ?? 0); // > 0 takes more stock, < 0 gives some back
+        if (!reserve) continue;
+        const args = { ...base, sku, reserve };
+        stmts.push(
+          // Below 0 violates the CHECK and rolls the whole edit back.
+          { sql: `UPDATE variants SET stock_qty = stock_qty - :reserve WHERE sku = :sku AND ${still}`, args },
+          // reason 'order' + order_id: a later cancel gives back exactly what the order holds now.
+          {
+            sql: `INSERT INTO stock_movements (sku, delta, reason, note, order_id, user_id, created_at)
+                  SELECT :sku, -:reserve, 'order', 'edit', :id, :by, :at WHERE ${still}`,
+            args,
+          },
+        );
+      }
+      const label = (sku: string) => (patch.items.find((i) => i.sku === sku) ?? order.items.find((i) => i.sku === sku))!.label;
+      const diff = {
+        lines: skus.filter((s) => before.get(s) !== after.get(s)).map((s) => [label(s), before.get(s) ?? 0, after.get(s) ?? 0]),
+        fields: [
+          ...(["name", "phone", "wilaya", "address"] as const).filter((k) => (order.customer[k] ?? "") !== (patch.customer[k] ?? "")),
+          ...(order.fulfillment !== patch.fulfillment || !order.customer.desk !== !patch.customer.desk ? ["fulfillment"] : []),
+        ],
+        total: [order.totals.total, patch.totals.total],
+      };
+      stmts.push(
+        { sql: `DELETE FROM order_items WHERE order_id = :id AND ${still}`, args: base },
+        ...patch.items.map(
+          (i): InStatement => ({
+            sql: `INSERT INTO order_items (order_id, sku, qty, unit_price, label) SELECT :id, :sku, :qty, :price, :label WHERE ${still}`,
+            args: { ...base, sku: i.sku, qty: i.qty, price: i.unitPrice, label: i.label },
+          }),
+        ),
+        {
+          sql: `INSERT INTO audit (user_id, action, entity, entity_id, diff, created_at) SELECT :by, 'edit', 'order', :id, :diff, :at WHERE ${still}`,
+          args: { ...base, diff: JSON.stringify(diff) },
+        },
+        {
+          sql: `UPDATE orders SET fulfillment = :fulfillment, payment_method = :payment, customer = :customer, subtotal = :subtotal,
+                  delivery_fee = :fee, total = :total, updated_at = :at
+                WHERE id = :id AND updated_at = :was AND status IN ('new', 'confirmed')`,
+          args: {
+            ...base, fulfillment: patch.fulfillment, payment: patch.paymentMethod, customer: JSON.stringify(patch.customer),
+            subtotal: patch.totals.subtotal, fee: patch.totals.deliveryFee, total: patch.totals.total,
+          },
+        },
+      );
+      let rs;
+      try {
+        rs = await db.batch(stmts, "write");
+      } catch (e) {
+        if (isCheckFailure(e)) throw new Error("out_of_stock");
+        throw e;
+      }
+      if (rs.at(-1)!.rowsAffected !== 1) throw new Error("conflict");
+    },
+
+    async logCall(id, outcome, by) {
+      await db.execute({
+        sql: `INSERT INTO audit (user_id, action, entity, entity_id, diff, created_at)
+              SELECT ?, 'call', 'order', id, ?, ? FROM orders WHERE id = ? AND status NOT IN ('done', 'cancelled')`,
+        args: [by, JSON.stringify({ outcome }), now(), id],
+      });
     },
 
     async audit(entity, entityId) {
