@@ -8,6 +8,8 @@ import { t } from "@/lib/i18n";
 export const metadata: Metadata = {
   title: { default: t("admin.title"), template: `%s · ${t("admin.title")}` },
   robots: { index: false, follow: false },
+  manifest: "/admin.webmanifest",
+  icons: { icon: storeConfig.identity.logo, apple: "/admin-icon/192" },
 };
 
 // Layouts don't re-run on every navigation, so each page and action calls requireRole() too.

@@ -127,6 +127,9 @@ After the seed, the database is the catalog: edit products in `/admin/products`,
 products or users. Add staff in `/admin/users`. Forgotten owner password: run `npm run admin:user` again
 with the same username; it resets the password and logs that user out everywhere.
 
+**Staff phones.** The shop never links to the admin. At handover, open `https://<store>/admin` on each staff
+phone and use *Add to home screen*: it installs as an app (store logo, full screen, opens on `/admin`).
+
 **Daily use.** Orders: call every *Nouvelle* order (one-tap call and WhatsApp with a message per status),
 then Confirmée → Prête → Terminée, or cancel with a reason (stock comes back). Products: inline price and
 stock per variant; the editor for everything else (color × storage matrix, photos per color). Stock:

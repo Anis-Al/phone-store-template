@@ -9,7 +9,12 @@ import { adminRepo } from "@/lib/data/repository";
 import { t } from "@/lib/i18n";
 import { login } from "./actions";
 
-export const metadata: Metadata = { title: t("admin.login.title"), robots: { index: false, follow: false } };
+export const metadata: Metadata = {
+  title: t("admin.login.title"),
+  robots: { index: false, follow: false },
+  manifest: "/admin.webmanifest",
+  icons: { icon: storeConfig.identity.logo, apple: "/admin-icon/192" },
+};
 
 export default async function LoginPage({ searchParams }: PageProps<"/admin/login">) {
   if (!adminRepo) notFound();
