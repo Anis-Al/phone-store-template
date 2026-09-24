@@ -3,6 +3,14 @@ import { z } from "zod";
 const time = z.string().regex(/^\d{2}:\d{2}$/, "HH:MM");
 export const DAYS = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"] as const;
 
+const heroBanner = z.object({
+  title: z.string().min(1),
+  text: z.string().optional(),
+  image: z.string().startsWith("/"), // path in /public
+  cta: z.object({ label: z.string().min(1), href: z.string().min(1) }),
+});
+export type HeroBanner = z.infer<typeof heroBanner>;
+
 export const storeConfigSchema = z.object({
   locale: z.enum(["fr", "en", "ar"]),
   identity: z.object({
@@ -47,6 +55,13 @@ export const storeConfigSchema = z.object({
     .min(1)
     .refine((cs) => new Set(cs.map((c) => c.slug)).size === cs.length, "duplicate category slug"),
   promo: z.object({ text: z.string(), href: z.string() }),
+  home: z
+    .object({
+      hero: z
+        .union([z.string().regex(/^[a-z0-9-]+$/, "product slug"), heroBanner])
+        .optional(),
+    })
+    .optional(),
   seo: z.object({
     siteUrl: z.url(),
     title: z.string(),

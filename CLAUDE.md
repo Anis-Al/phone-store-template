@@ -29,7 +29,7 @@ New-client steps: `TEMPLATE_SETUP.md`.
 - Info pages: `/contact` (form opens a pre-filled WhatsApp message), `/about` and `/warranty` from markdown.
 - SEO: per-page metadata, Open Graph, `sitemap.xml`, `robots.txt`, LocalBusiness JSON-LD; 404 page, error boundary.
 - Categories (config `categories`): menu link per category, `/catalog?category=` chips; specs table and storage
-  picker follow the product's data (accessories have neither). Home uses the first category.
+  picker follow the product's data (accessories have neither). Home: featured from any category, the rest from the first.
 - Demo seed: 20 phones, 6 brands, 127 SKUs, 2 used phones, low / out-of-stock cases; 6 accessories.
 
 **Built (admin panel, `ADMIN_PLAN.md` A0–A5, A7; needs `DATA_ADAPTER=db`):**
@@ -139,7 +139,7 @@ Kept here instead of as code comments, one subsection per feature. `ponytail:` m
   - `VariantPicker`: storage choice only if the product has storage.
   - Product page: specs section only with a spec sheet (description then spans the width); breadcrumb
     Catalog › Category › Brand when there are several categories.
-  - Home: primary category only, loaded once; featured, newest and brands are cuts of that list.
+  - Home: products loaded once; featured (hero + tiles) from every category, newest and brands from the primary one.
 - **Admin:**
   - `saveProduct` action re-checks the category against the config and requires a spec sheet for `specs`
     categories (the shared schema is plain-Node and can't read the config).

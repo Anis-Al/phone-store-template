@@ -35,6 +35,9 @@ Validated by Zod at build time: a typo fails `npm run build` with the exact fiel
   the home page's category. With a single category the menu shows one "Boutique" link and no category chips.
   The slug is stored on every product: rename the label freely, never the slug.
 - `promo`: banner text and link.
+- `home.hero` (optional): what leads the home page. Unset = the most expensive featured product. A product slug
+  (`"samsung-galaxy-s25-ultra"`, any category) puts that product there. A custom banner `{ title, text?, image, cta: { label, href } }`
+  (image under `/public`) replaces it, e.g. for a sale. The featured tiles below skip whatever product is the hero.
 - `seo`: `siteUrl` (production origin, used for canonical URLs, sitemap and JSON-LD), `title`, `description`, `ogImage`.
 
 ## 3. Design — `styles/tokens.css`
@@ -74,8 +77,8 @@ Tested: a required-tokens-only file (Starbucks palette, serif headings) built an
   `specs` (the phone spec sheet) and `storage` are optional: an accessory without them gets no specs table and
   no storage picker; put its details in `description` and compatible models in `tags` (search reads them).
   An optional `tagline` (≤ 90 chars) shows in the home hero and on cards of products without specs.
-  `featured: true` puts a product of the first category on the home page; the most expensive one becomes the hero.
-  The file is Zod-validated at build. A missing or unknown `category` reads as the first configured one, and
+  `featured: true` puts a product (any category) on the home page; the most expensive one becomes the hero
+  (unless config `home.hero` says otherwise). The file is Zod-validated at build. A missing or unknown `category` reads as the first configured one, and
   variants must all have a `storage` or none.
 - `locales/*.json`: every UI string. The store-specific marketing copy is `home.trust.*` and `product.deliveryInfo`.
 - `pages/about.<locale>.md`, `pages/warranty.<locale>.md`: the first `# ` line is the page title.

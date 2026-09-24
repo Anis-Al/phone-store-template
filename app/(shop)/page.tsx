@@ -8,7 +8,8 @@ import { ProductCard } from "@/components/product/ProductCard";
 import { StoreJsonLd } from "@/components/StoreJsonLd";
 import { buttonClass } from "@/components/ui/button";
 import { facets, filterProducts, fromPrice } from "@/lib/catalog";
-import { categorySlugs } from "@/lib/config/store.config";
+import type { HeroBanner } from "@/lib/config/schema";
+import { categorySlugs, storeConfig } from "@/lib/config/store.config";
 import type { Product } from "@/lib/data/schemas";
 import { repo } from "@/lib/data/repository";
 import { formatPrice, t } from "@/lib/i18n";
@@ -66,13 +67,33 @@ function Tile({ product, dark, hero }: { product: Product; dark?: boolean; hero?
   );
 }
 
+function Banner({ title, text, image, cta }: HeroBanner) {
+  return (
+    <section className="flex flex-col items-center overflow-hidden bg-inverse px-5 pt-8 text-center text-inverse-fg">
+      <h1 className="mt-1 text-4xl font-semibold md:text-6xl">{title}</h1>
+      {text && <p className="mt-3 max-w-xl text-lg opacity-80 md:text-2xl">{text}</p>}
+      <Link href={cta.href} className={buttonClass({ className: "mt-5" })}>
+        {cta.label}
+      </Link>
+      <div className="relative mt-6 aspect-[4/3] w-full max-w-3xl">
+        <Image src={image} alt="" fill priority sizes="(min-width: 768px) 768px, 100vw" className="object-contain object-bottom" />
+      </div>
+    </section>
+  );
+}
+
 export default async function HomePage() {
   const category = categorySlugs[0];
-  const shelf = await repo.getProducts({ category });
-  const featured = filterProducts(shelf, { featured: true, sort: "price-desc" }); // flagship leads
+  const all = await repo.getProducts();
+  const shelf = filterProducts(all, { category });
+  const featured = filterProducts(all, { featured: true, sort: "price-desc" }); // any category; flagship leads
   const newest = filterProducts(shelf, { sort: "newest", condition: ["new"], limit: 4 });
   const { brands } = facets(shelf);
-  const [hero, ...tiles] = featured;
+  const pick = storeConfig.home?.hero;
+  const banner = typeof pick === "object" ? pick : undefined;
+  // An unknown or archived slug falls back to the flagship rather than breaking the home page.
+  const hero = banner ? undefined : ((typeof pick === "string" && (await repo.getProductBySlug(pick))) || featured[0]);
+  const tiles = featured.filter((p) => p.id !== hero?.id);
   const trust = [
     { icon: ShieldCheck, title: t("home.trust.authenticTitle"), text: t("home.trust.authenticText") },
     { icon: BadgeCheck, title: t("home.trust.warrantyTitle"), text: t("home.trust.warrantyText") },
@@ -82,6 +103,7 @@ export default async function HomePage() {
   return (
     <>
       <PromoBanner />
+      {banner && <Banner {...banner} />}
       {hero && <Tile product={hero} dark hero />}
       {tiles.length > 0 && (
         <div className="grid gap-3 p-3 md:grid-cols-2">

@@ -51,6 +51,11 @@ export const storeConfig = storeConfigSchema.parse({
     text: "Livraison 58 wilayas · Paiement à la livraison",
     href: "/catalog",
   },
+  home: {
+    // Unset: the most expensive featured product. A product slug ("samsung-galaxy-s25-ultra"), or a custom banner:
+    // { title: "Soldes Ramadan", text: "Jusqu'à −20 %", image: "/hero.jpg", cta: { label: "J'en profite", href: "/catalog" } }
+    hero: undefined,
+  },
   seo: {
     siteUrl: "https://mobistore.example",
     title: "MobiStore — Smartphones à Alger",
