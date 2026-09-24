@@ -1,0 +1,80 @@
+/*
+ * Design tokens — the ONLY file holding visual values.
+ * Swap this file (and /public/fonts if the font changes) to re-skin the store.
+ * Current values: "Apple" design system (design systems for claude/apple/DESIGN.md).
+ *
+ * REQUIRED (template contract): --color-primary/-primary-fg/-surface/-surface-alt/-text/-text-muted/
+ *   -accent/-success/-warning/-danger · --font-heading/-body · --radius-sm/md/lg ·
+ *   --shadow-card · --space-1..8
+ * OPTIONAL (fall back to values derived from the required set — see app/globals.css):
+ *   --color-border, --color-inverse, --color-inverse-fg, --color-focus, --shadow-product,
+ *   --radius-pill, --tracking-heading, --font-size-body, --container-max
+ */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/inter-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/inter-latin-ext-wght-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+    U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,
+    U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* Colors */
+  --color-primary: #0066cc; /* Action Blue — every interactive element */
+  --color-primary-fg: #ffffff;
+  --color-surface: #ffffff; /* canvas */
+  --color-surface-alt: #f5f5f7; /* parchment */
+  --color-text: #1d1d1f; /* ink */
+  --color-text-muted: #6e6e73; /* ink-muted, darkened from #7a7a7a for AA contrast on parchment */
+  --color-accent: #2997ff; /* sky link blue — on dark surfaces only */
+  --color-success: #1a7f37;
+  --color-warning: #b25000;
+  --color-danger: #d70015;
+  --color-border: #e0e0e0; /* hairline */
+  --color-inverse: #000000; /* global nav / dark tile */
+  --color-inverse-fg: #ffffff;
+  --color-focus: #0071e3;
+
+  /* Typography — SF Pro on Apple devices, self-hosted Inter elsewhere */
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui,
+    sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+  --tracking-heading: -0.015em;
+  --font-size-body: 17px; /* Apple runs body at 17px, not 16 */
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 11px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+
+  /* Elevation — Apple: cards are flat, only product imagery carries a shadow */
+  --shadow-card: none;
+  --shadow-product: 3px 5px 30px rgba(0, 0, 0, 0.22); /* used as filter: drop-shadow() on product renders */
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 17px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 80px;
+
+  --container-max: 1440px;
+}

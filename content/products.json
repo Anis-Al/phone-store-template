@@ -1,0 +1,2698 @@
+[
+  {
+    "id": "p01",
+    "slug": "iphone-17-pro-max",
+    "category": "phones",
+    "brand": "Apple",
+    "model": "iPhone 17 Pro Max",
+    "name": "iPhone 17 Pro Max",
+    "description": "Le plus grand et le plus endurant des iPhone. Châssis unibody en aluminium, puce A19 Pro et triple caméra 48 MP avec téléobjectif 4×, pour des photos et vidéos de niveau professionnel.",
+    "tagline": "Le plus grand. Le plus endurant. Le plus Pro.",
+    "images": [
+      "/products/iphone-17-pro-max/orange-cosmique-front.webp",
+      "/products/iphone-17-pro-max/orange-cosmique-back.webp"
+    ],
+    "basePrice": 355000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,9\" Super Retina XDR OLED, ProMotion 120 Hz",
+      "chipset": "Apple A19 Pro",
+      "ram": 12,
+      "storage": "256 Go / 512 Go / 1 To",
+      "battery": "Jusqu'à 37 h de lecture vidéo, charge rapide 40 W",
+      "mainCamera": "48 MP Fusion + 48 MP ultra grand-angle + 48 MP téléobjectif 4×",
+      "frontCamera": "18 MP Center Stage",
+      "os": "iOS 26",
+      "network": "5G, Wi-Fi 7, eSIM + nano-SIM"
+    },
+    "tags": [
+      "5g",
+      "esim",
+      "photo",
+      "pro"
+    ],
+    "featured": true,
+    "createdAt": "2025-09-26",
+    "variants": [
+      {
+        "sku": "IP17PM-256-OC0",
+        "color": {
+          "name": "Orange cosmique",
+          "hex": "#E8702A"
+        },
+        "storage": 256,
+        "stockQty": 6,
+        "images": [
+          "/products/iphone-17-pro-max/orange-cosmique-front.webp",
+          "/products/iphone-17-pro-max/orange-cosmique-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-512-OC0",
+        "color": {
+          "name": "Orange cosmique",
+          "hex": "#E8702A"
+        },
+        "storage": 512,
+        "priceOverride": 405000,
+        "stockQty": 3,
+        "images": [
+          "/products/iphone-17-pro-max/orange-cosmique-front.webp",
+          "/products/iphone-17-pro-max/orange-cosmique-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-1T-OC0",
+        "color": {
+          "name": "Orange cosmique",
+          "hex": "#E8702A"
+        },
+        "storage": 1024,
+        "priceOverride": 465000,
+        "stockQty": 1,
+        "images": [
+          "/products/iphone-17-pro-max/orange-cosmique-front.webp",
+          "/products/iphone-17-pro-max/orange-cosmique-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-256-BI1",
+        "color": {
+          "name": "Bleu intense",
+          "hex": "#2F3B55"
+        },
+        "storage": 256,
+        "stockQty": 5,
+        "images": [
+          "/products/iphone-17-pro-max/bleu-intense-front.webp",
+          "/products/iphone-17-pro-max/bleu-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-512-BI1",
+        "color": {
+          "name": "Bleu intense",
+          "hex": "#2F3B55"
+        },
+        "storage": 512,
+        "priceOverride": 405000,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-17-pro-max/bleu-intense-front.webp",
+          "/products/iphone-17-pro-max/bleu-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-1T-BI1",
+        "color": {
+          "name": "Bleu intense",
+          "hex": "#2F3B55"
+        },
+        "storage": 1024,
+        "priceOverride": 465000,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-17-pro-max/bleu-intense-front.webp",
+          "/products/iphone-17-pro-max/bleu-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-256-A2",
+        "color": {
+          "name": "Argent",
+          "hex": "#DADCDE"
+        },
+        "storage": 256,
+        "stockQty": 4,
+        "images": [
+          "/products/iphone-17-pro-max/argent-front.webp",
+          "/products/iphone-17-pro-max/argent-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-512-A2",
+        "color": {
+          "name": "Argent",
+          "hex": "#DADCDE"
+        },
+        "storage": 512,
+        "priceOverride": 405000,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-17-pro-max/argent-front.webp",
+          "/products/iphone-17-pro-max/argent-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17PM-1T-A2",
+        "color": {
+          "name": "Argent",
+          "hex": "#DADCDE"
+        },
+        "storage": 1024,
+        "priceOverride": 465000,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-17-pro-max/argent-front.webp",
+          "/products/iphone-17-pro-max/argent-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p02",
+    "slug": "iphone-17-pro",
+    "category": "phones",
+    "brand": "Apple",
+    "model": "iPhone 17 Pro",
+    "name": "iPhone 17 Pro",
+    "description": "Toute la puissance de la gamme Pro dans un format 6,3\". Puce A19 Pro, écran ProMotion toujours actif et système photo pro 48 MP.",
+    "images": [
+      "/products/iphone-17-pro/orange-cosmique-front.webp",
+      "/products/iphone-17-pro/orange-cosmique-back.webp"
+    ],
+    "basePrice": 310000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,3\" Super Retina XDR OLED, ProMotion 120 Hz",
+      "chipset": "Apple A19 Pro",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "Jusqu'à 31 h de lecture vidéo, charge rapide 40 W",
+      "mainCamera": "48 MP Fusion + 48 MP ultra grand-angle + 48 MP téléobjectif 4×",
+      "frontCamera": "18 MP Center Stage",
+      "os": "iOS 26",
+      "network": "5G, Wi-Fi 7, eSIM + nano-SIM"
+    },
+    "tags": [
+      "5g",
+      "esim",
+      "photo",
+      "pro",
+      "compact"
+    ],
+    "featured": false,
+    "createdAt": "2025-09-26",
+    "variants": [
+      {
+        "sku": "IP17P-256-OC0",
+        "color": {
+          "name": "Orange cosmique",
+          "hex": "#E8702A"
+        },
+        "storage": 256,
+        "stockQty": 5,
+        "images": [
+          "/products/iphone-17-pro/orange-cosmique-front.webp",
+          "/products/iphone-17-pro/orange-cosmique-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17P-512-OC0",
+        "color": {
+          "name": "Orange cosmique",
+          "hex": "#E8702A"
+        },
+        "storage": 512,
+        "priceOverride": 355000,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-17-pro/orange-cosmique-front.webp",
+          "/products/iphone-17-pro/orange-cosmique-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17P-256-BI1",
+        "color": {
+          "name": "Bleu intense",
+          "hex": "#2F3B55"
+        },
+        "storage": 256,
+        "stockQty": 7,
+        "images": [
+          "/products/iphone-17-pro/bleu-intense-front.webp",
+          "/products/iphone-17-pro/bleu-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17P-512-BI1",
+        "color": {
+          "name": "Bleu intense",
+          "hex": "#2F3B55"
+        },
+        "storage": 512,
+        "priceOverride": 355000,
+        "stockQty": 3,
+        "images": [
+          "/products/iphone-17-pro/bleu-intense-front.webp",
+          "/products/iphone-17-pro/bleu-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17P-256-A2",
+        "color": {
+          "name": "Argent",
+          "hex": "#DADCDE"
+        },
+        "storage": 256,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-17-pro/argent-front.webp",
+          "/products/iphone-17-pro/argent-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17P-512-A2",
+        "color": {
+          "name": "Argent",
+          "hex": "#DADCDE"
+        },
+        "storage": 512,
+        "priceOverride": 355000,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-17-pro/argent-front.webp",
+          "/products/iphone-17-pro/argent-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p03",
+    "slug": "iphone-17",
+    "category": "phones",
+    "brand": "Apple",
+    "model": "iPhone 17",
+    "name": "iPhone 17",
+    "description": "L'iPhone de référence passe au ProMotion 120 Hz et démarre à 256 Go. Puce A19, double caméra 48 MP et nouvelle caméra frontale Center Stage.",
+    "images": [
+      "/products/iphone-17/noir-front.webp",
+      "/products/iphone-17/noir-back.webp"
+    ],
+    "basePrice": 205000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,3\" Super Retina XDR OLED, ProMotion 120 Hz",
+      "chipset": "Apple A19",
+      "ram": 8,
+      "storage": "256 Go / 512 Go",
+      "battery": "Jusqu'à 30 h de lecture vidéo, charge rapide 40 W",
+      "mainCamera": "48 MP Fusion + 48 MP ultra grand-angle",
+      "frontCamera": "18 MP Center Stage",
+      "os": "iOS 26",
+      "network": "5G, Wi-Fi 7, eSIM + nano-SIM"
+    },
+    "tags": [
+      "5g",
+      "esim"
+    ],
+    "featured": false,
+    "createdAt": "2025-09-26",
+    "variants": [
+      {
+        "sku": "IP17-256-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2B2B2D"
+        },
+        "storage": 256,
+        "stockQty": 8,
+        "images": [
+          "/products/iphone-17/noir-front.webp",
+          "/products/iphone-17/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-512-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2B2B2D"
+        },
+        "storage": 512,
+        "priceOverride": 245000,
+        "stockQty": 3,
+        "images": [
+          "/products/iphone-17/noir-front.webp",
+          "/products/iphone-17/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-256-B1",
+        "color": {
+          "name": "Blanc",
+          "hex": "#F2F2F0"
+        },
+        "storage": 256,
+        "stockQty": 6,
+        "images": [
+          "/products/iphone-17/blanc-front.webp",
+          "/products/iphone-17/blanc-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-512-B1",
+        "color": {
+          "name": "Blanc",
+          "hex": "#F2F2F0"
+        },
+        "storage": 512,
+        "priceOverride": 245000,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-17/blanc-front.webp",
+          "/products/iphone-17/blanc-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-256-BB2",
+        "color": {
+          "name": "Bleu brume",
+          "hex": "#A9BCD0"
+        },
+        "storage": 256,
+        "stockQty": 4,
+        "images": [
+          "/products/iphone-17/bleu-brume-front.webp",
+          "/products/iphone-17/bleu-brume-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-512-BB2",
+        "color": {
+          "name": "Bleu brume",
+          "hex": "#A9BCD0"
+        },
+        "storage": 512,
+        "priceOverride": 245000,
+        "stockQty": 1,
+        "images": [
+          "/products/iphone-17/bleu-brume-front.webp",
+          "/products/iphone-17/bleu-brume-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-256-S3",
+        "color": {
+          "name": "Sauge",
+          "hex": "#A7B59A"
+        },
+        "storage": 256,
+        "stockQty": 3,
+        "images": [
+          "/products/iphone-17/sauge-front.webp",
+          "/products/iphone-17/sauge-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-512-S3",
+        "color": {
+          "name": "Sauge",
+          "hex": "#A7B59A"
+        },
+        "storage": 512,
+        "priceOverride": 245000,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-17/sauge-front.webp",
+          "/products/iphone-17/sauge-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-256-L4",
+        "color": {
+          "name": "Lavande",
+          "hex": "#C9B8DB"
+        },
+        "storage": 256,
+        "stockQty": 5,
+        "images": [
+          "/products/iphone-17/lavande-front.webp",
+          "/products/iphone-17/lavande-back.webp"
+        ]
+      },
+      {
+        "sku": "IP17-512-L4",
+        "color": {
+          "name": "Lavande",
+          "hex": "#C9B8DB"
+        },
+        "storage": 512,
+        "priceOverride": 245000,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-17/lavande-front.webp",
+          "/products/iphone-17/lavande-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p04",
+    "slug": "iphone-16e",
+    "category": "phones",
+    "brand": "Apple",
+    "model": "iPhone 16e",
+    "name": "iPhone 16e",
+    "description": "L'essentiel de l'iPhone au meilleur prix : puce A18, Apple Intelligence et une caméra 48 MP 2-en-1. Idéal comme premier iPhone.",
+    "images": [
+      "/products/iphone-16e/noir-front.webp",
+      "/products/iphone-16e/noir-back.webp"
+    ],
+    "basePrice": 132000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,1\" Super Retina XDR OLED, 60 Hz",
+      "chipset": "Apple A18",
+      "ram": 8,
+      "storage": "128 Go / 256 Go",
+      "battery": "Jusqu'à 26 h de lecture vidéo, charge 20 W",
+      "mainCamera": "48 MP Fusion (zoom 2× qualité optique)",
+      "frontCamera": "12 MP",
+      "os": "iOS 26",
+      "network": "5G, Wi-Fi 6, eSIM + nano-SIM"
+    },
+    "tags": [
+      "5g",
+      "esim",
+      "petit-prix"
+    ],
+    "featured": false,
+    "createdAt": "2025-03-05",
+    "variants": [
+      {
+        "sku": "IP16E-128-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2B2B2D"
+        },
+        "storage": 128,
+        "stockQty": 9,
+        "images": [
+          "/products/iphone-16e/noir-front.webp",
+          "/products/iphone-16e/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "IP16E-256-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2B2B2D"
+        },
+        "storage": 256,
+        "priceOverride": 152000,
+        "stockQty": 4,
+        "images": [
+          "/products/iphone-16e/noir-front.webp",
+          "/products/iphone-16e/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "IP16E-128-B1",
+        "color": {
+          "name": "Blanc",
+          "hex": "#F2F2F0"
+        },
+        "storage": 128,
+        "stockQty": 6,
+        "images": [
+          "/products/iphone-16e/blanc-front.webp",
+          "/products/iphone-16e/blanc-back.webp"
+        ]
+      },
+      {
+        "sku": "IP16E-256-B1",
+        "color": {
+          "name": "Blanc",
+          "hex": "#F2F2F0"
+        },
+        "storage": 256,
+        "priceOverride": 152000,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-16e/blanc-front.webp",
+          "/products/iphone-16e/blanc-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p05",
+    "slug": "iphone-14-pro-occasion",
+    "category": "phones",
+    "brand": "Apple",
+    "model": "iPhone 14 Pro",
+    "name": "iPhone 14 Pro",
+    "description": "iPhone 14 Pro d'occasion contrôlé en boutique : batterie ≥ 87 %, Face ID et caméras testés, écran sans rayure. Vendu avec câble et garantie boutique 6 mois.",
+    "images": [
+      "/products/iphone-14-pro-occasion/violet-intense-front.webp",
+      "/products/iphone-14-pro-occasion/violet-intense-back.webp"
+    ],
+    "basePrice": 118000,
+    "condition": "used",
+    "specs": {
+      "screen": "6,1\" Super Retina XDR OLED, ProMotion 120 Hz",
+      "chipset": "Apple A16 Bionic",
+      "ram": 6,
+      "storage": "128 Go / 256 Go",
+      "battery": "Santé batterie ≥ 87 %, charge 20 W",
+      "mainCamera": "48 MP principal + 12 MP ultra grand-angle + 12 MP téléobjectif 3×",
+      "frontCamera": "12 MP",
+      "os": "iOS 26",
+      "network": "5G, Wi-Fi 6, nano-SIM + eSIM"
+    },
+    "tags": [
+      "occasion",
+      "reconditionne",
+      "5g"
+    ],
+    "featured": false,
+    "createdAt": "2026-07-14",
+    "variants": [
+      {
+        "sku": "IP14P-OCC-128-VI0",
+        "color": {
+          "name": "Violet intense",
+          "hex": "#5B4F66"
+        },
+        "storage": 128,
+        "stockQty": 2,
+        "images": [
+          "/products/iphone-14-pro-occasion/violet-intense-front.webp",
+          "/products/iphone-14-pro-occasion/violet-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP14P-OCC-256-VI0",
+        "color": {
+          "name": "Violet intense",
+          "hex": "#5B4F66"
+        },
+        "storage": 256,
+        "priceOverride": 132000,
+        "stockQty": 1,
+        "images": [
+          "/products/iphone-14-pro-occasion/violet-intense-front.webp",
+          "/products/iphone-14-pro-occasion/violet-intense-back.webp"
+        ]
+      },
+      {
+        "sku": "IP14P-OCC-128-NS1",
+        "color": {
+          "name": "Noir sidéral",
+          "hex": "#3A3A3C"
+        },
+        "storage": 128,
+        "stockQty": 1,
+        "images": [
+          "/products/iphone-14-pro-occasion/noir-sideral-front.webp",
+          "/products/iphone-14-pro-occasion/noir-sideral-back.webp"
+        ]
+      },
+      {
+        "sku": "IP14P-OCC-256-NS1",
+        "color": {
+          "name": "Noir sidéral",
+          "hex": "#3A3A3C"
+        },
+        "storage": 256,
+        "priceOverride": 132000,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-14-pro-occasion/noir-sideral-front.webp",
+          "/products/iphone-14-pro-occasion/noir-sideral-back.webp"
+        ]
+      },
+      {
+        "sku": "IP14P-OCC-128-O2",
+        "color": {
+          "name": "Or",
+          "hex": "#E9DCC5"
+        },
+        "storage": 128,
+        "stockQty": 0,
+        "images": [
+          "/products/iphone-14-pro-occasion/or-front.webp",
+          "/products/iphone-14-pro-occasion/or-back.webp"
+        ]
+      },
+      {
+        "sku": "IP14P-OCC-256-O2",
+        "color": {
+          "name": "Or",
+          "hex": "#E9DCC5"
+        },
+        "storage": 256,
+        "priceOverride": 132000,
+        "stockQty": 1,
+        "images": [
+          "/products/iphone-14-pro-occasion/or-front.webp",
+          "/products/iphone-14-pro-occasion/or-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p06",
+    "slug": "samsung-galaxy-s25-ultra",
+    "category": "phones",
+    "brand": "Samsung",
+    "model": "Galaxy S25 Ultra",
+    "name": "Galaxy S25 Ultra",
+    "description": "Le photophone ultime de Samsung : capteur 200 MP, double téléobjectif 3× et 5×, S Pen intégré et Galaxy AI. Écran 6,9\" anti-reflet protégé par Gorilla Armor 2.",
+    "tagline": "200 MP, S Pen et Galaxy AI. Tout, en un.",
+    "images": [
+      "/products/samsung-galaxy-s25-ultra/titane-bleu-argente-front.webp",
+      "/products/samsung-galaxy-s25-ultra/titane-bleu-argente-back.webp"
+    ],
+    "basePrice": 239000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,9\" Dynamic AMOLED 2X, 120 Hz, anti-reflet",
+      "chipset": "Snapdragon 8 Elite for Galaxy",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "5 000 mAh, charge rapide 45 W",
+      "mainCamera": "200 MP + 50 MP ultra grand-angle + 10 MP 3× + 50 MP 5×",
+      "frontCamera": "12 MP",
+      "os": "Android 16, One UI 8",
+      "network": "5G, Wi-Fi 7, double SIM + eSIM"
+    },
+    "tags": [
+      "5g",
+      "photo",
+      "s-pen",
+      "galaxy-ai"
+    ],
+    "featured": true,
+    "createdAt": "2025-02-07",
+    "variants": [
+      {
+        "sku": "SGS25U-256-TBA0",
+        "color": {
+          "name": "Titane bleu argenté",
+          "hex": "#7F93A8"
+        },
+        "storage": 256,
+        "stockQty": 6,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-bleu-argente-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-bleu-argente-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-512-TBA0",
+        "color": {
+          "name": "Titane bleu argenté",
+          "hex": "#7F93A8"
+        },
+        "storage": 512,
+        "priceOverride": 272000,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-bleu-argente-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-bleu-argente-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-256-TN1",
+        "color": {
+          "name": "Titane noir",
+          "hex": "#2E2F31"
+        },
+        "storage": 256,
+        "stockQty": 8,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-noir-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-noir-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-512-TN1",
+        "color": {
+          "name": "Titane noir",
+          "hex": "#2E2F31"
+        },
+        "storage": 512,
+        "priceOverride": 272000,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-noir-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-noir-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-256-TG2",
+        "color": {
+          "name": "Titane gris",
+          "hex": "#8A8A88"
+        },
+        "storage": 256,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-gris-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-gris-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-512-TG2",
+        "color": {
+          "name": "Titane gris",
+          "hex": "#8A8A88"
+        },
+        "storage": 512,
+        "priceOverride": 272000,
+        "stockQty": 0,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-gris-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-gris-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-256-TBA3",
+        "color": {
+          "name": "Titane blanc argenté",
+          "hex": "#E4E3E0"
+        },
+        "storage": 256,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-blanc-argente-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-blanc-argente-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25U-512-TBA3",
+        "color": {
+          "name": "Titane blanc argenté",
+          "hex": "#E4E3E0"
+        },
+        "storage": 512,
+        "priceOverride": 272000,
+        "stockQty": 1,
+        "images": [
+          "/products/samsung-galaxy-s25-ultra/titane-blanc-argente-front.webp",
+          "/products/samsung-galaxy-s25-ultra/titane-blanc-argente-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p07",
+    "slug": "samsung-galaxy-s25",
+    "category": "phones",
+    "brand": "Samsung",
+    "model": "Galaxy S25",
+    "name": "Galaxy S25",
+    "description": "Un flagship compact de 6,2\" avec la puce la plus rapide de Samsung, Galaxy AI et 7 ans de mises à jour Android.",
+    "images": [
+      "/products/samsung-galaxy-s25/bleu-glacier-front.webp",
+      "/products/samsung-galaxy-s25/bleu-glacier-back.webp"
+    ],
+    "basePrice": 148000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,2\" Dynamic AMOLED 2X, 120 Hz",
+      "chipset": "Snapdragon 8 Elite for Galaxy",
+      "ram": 12,
+      "storage": "128 Go / 256 Go",
+      "battery": "4 000 mAh, charge rapide 25 W",
+      "mainCamera": "50 MP + 12 MP ultra grand-angle + 10 MP téléobjectif 3×",
+      "frontCamera": "12 MP",
+      "os": "Android 16, One UI 8",
+      "network": "5G, Wi-Fi 7, double SIM + eSIM"
+    },
+    "tags": [
+      "5g",
+      "compact",
+      "galaxy-ai"
+    ],
+    "featured": false,
+    "createdAt": "2025-02-07",
+    "variants": [
+      {
+        "sku": "SGS25-128-BG0",
+        "color": {
+          "name": "Bleu glacier",
+          "hex": "#BFD3E6"
+        },
+        "storage": 128,
+        "stockQty": 5,
+        "images": [
+          "/products/samsung-galaxy-s25/bleu-glacier-front.webp",
+          "/products/samsung-galaxy-s25/bleu-glacier-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-256-BG0",
+        "color": {
+          "name": "Bleu glacier",
+          "hex": "#BFD3E6"
+        },
+        "storage": 256,
+        "priceOverride": 164000,
+        "stockQty": 4,
+        "images": [
+          "/products/samsung-galaxy-s25/bleu-glacier-front.webp",
+          "/products/samsung-galaxy-s25/bleu-glacier-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-128-BN1",
+        "color": {
+          "name": "Bleu nuit",
+          "hex": "#2C3447"
+        },
+        "storage": 128,
+        "stockQty": 7,
+        "images": [
+          "/products/samsung-galaxy-s25/bleu-nuit-front.webp",
+          "/products/samsung-galaxy-s25/bleu-nuit-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-256-BN1",
+        "color": {
+          "name": "Bleu nuit",
+          "hex": "#2C3447"
+        },
+        "storage": 256,
+        "priceOverride": 164000,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-s25/bleu-nuit-front.webp",
+          "/products/samsung-galaxy-s25/bleu-nuit-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-128-M2",
+        "color": {
+          "name": "Menthe",
+          "hex": "#BFE0CF"
+        },
+        "storage": 128,
+        "stockQty": 0,
+        "images": [
+          "/products/samsung-galaxy-s25/menthe-front.webp",
+          "/products/samsung-galaxy-s25/menthe-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-256-M2",
+        "color": {
+          "name": "Menthe",
+          "hex": "#BFE0CF"
+        },
+        "storage": 256,
+        "priceOverride": 164000,
+        "stockQty": 0,
+        "images": [
+          "/products/samsung-galaxy-s25/menthe-front.webp",
+          "/products/samsung-galaxy-s25/menthe-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-128-AO3",
+        "color": {
+          "name": "Argent ombré",
+          "hex": "#C9CACC"
+        },
+        "storage": 128,
+        "stockQty": 4,
+        "images": [
+          "/products/samsung-galaxy-s25/argent-ombre-front.webp",
+          "/products/samsung-galaxy-s25/argent-ombre-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS25-256-AO3",
+        "color": {
+          "name": "Argent ombré",
+          "hex": "#C9CACC"
+        },
+        "storage": 256,
+        "priceOverride": 164000,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-s25/argent-ombre-front.webp",
+          "/products/samsung-galaxy-s25/argent-ombre-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p08",
+    "slug": "samsung-galaxy-a56-5g",
+    "category": "phones",
+    "brand": "Samsung",
+    "model": "Galaxy A56 5G",
+    "name": "Galaxy A56 5G",
+    "description": "Le milieu de gamme le plus complet de Samsung : écran AMOLED 120 Hz, charge 45 W, certification IP67 et 6 ans de mises à jour.",
+    "images": [
+      "/products/samsung-galaxy-a56-5g/graphite-front.webp",
+      "/products/samsung-galaxy-a56-5g/graphite-back.webp"
+    ],
+    "basePrice": 78000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,7\" Super AMOLED, 120 Hz",
+      "chipset": "Exynos 1580",
+      "ram": 8,
+      "storage": "128 Go / 256 Go",
+      "battery": "5 000 mAh, charge rapide 45 W",
+      "mainCamera": "50 MP + 12 MP ultra grand-angle + 5 MP macro",
+      "frontCamera": "12 MP",
+      "os": "Android 16, One UI 8",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "ip67",
+      "milieu-de-gamme"
+    ],
+    "featured": false,
+    "createdAt": "2025-03-20",
+    "variants": [
+      {
+        "sku": "SGA56-128-G0",
+        "color": {
+          "name": "Graphite",
+          "hex": "#3A3B3D"
+        },
+        "storage": 128,
+        "stockQty": 12,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/graphite-front.webp",
+          "/products/samsung-galaxy-a56-5g/graphite-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-256-G0",
+        "color": {
+          "name": "Graphite",
+          "hex": "#3A3B3D"
+        },
+        "storage": 256,
+        "priceOverride": 86000,
+        "stockQty": 6,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/graphite-front.webp",
+          "/products/samsung-galaxy-a56-5g/graphite-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-128-GC1",
+        "color": {
+          "name": "Gris clair",
+          "hex": "#D5D6D8"
+        },
+        "storage": 128,
+        "stockQty": 8,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/gris-clair-front.webp",
+          "/products/samsung-galaxy-a56-5g/gris-clair-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-256-GC1",
+        "color": {
+          "name": "Gris clair",
+          "hex": "#D5D6D8"
+        },
+        "storage": 256,
+        "priceOverride": 86000,
+        "stockQty": 4,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/gris-clair-front.webp",
+          "/products/samsung-galaxy-a56-5g/gris-clair-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-128-O2",
+        "color": {
+          "name": "Olive",
+          "hex": "#8C8F6E"
+        },
+        "storage": 128,
+        "stockQty": 5,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/olive-front.webp",
+          "/products/samsung-galaxy-a56-5g/olive-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-256-O2",
+        "color": {
+          "name": "Olive",
+          "hex": "#8C8F6E"
+        },
+        "storage": 256,
+        "priceOverride": 86000,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/olive-front.webp",
+          "/products/samsung-galaxy-a56-5g/olive-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-128-R3",
+        "color": {
+          "name": "Rose",
+          "hex": "#E8C8C9"
+        },
+        "storage": 128,
+        "stockQty": 4,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/rose-front.webp",
+          "/products/samsung-galaxy-a56-5g/rose-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA56-256-R3",
+        "color": {
+          "name": "Rose",
+          "hex": "#E8C8C9"
+        },
+        "storage": 256,
+        "priceOverride": 86000,
+        "stockQty": 0,
+        "images": [
+          "/products/samsung-galaxy-a56-5g/rose-front.webp",
+          "/products/samsung-galaxy-a56-5g/rose-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p09",
+    "slug": "samsung-galaxy-a36-5g",
+    "category": "phones",
+    "brand": "Samsung",
+    "model": "Galaxy A36 5G",
+    "name": "Galaxy A36 5G",
+    "description": "Grand écran AMOLED 120 Hz, Snapdragon 6 Gen 3 et batterie 5 000 mAh avec charge 45 W : l'équilibre parfait au quotidien.",
+    "images": [
+      "/products/samsung-galaxy-a36-5g/noir-front.webp",
+      "/products/samsung-galaxy-a36-5g/noir-back.webp"
+    ],
+    "basePrice": 62000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,7\" Super AMOLED, 120 Hz",
+      "chipset": "Snapdragon 6 Gen 3",
+      "ram": 8,
+      "storage": "128 Go / 256 Go",
+      "battery": "5 000 mAh, charge rapide 45 W",
+      "mainCamera": "50 MP + 8 MP ultra grand-angle + 5 MP macro",
+      "frontCamera": "12 MP",
+      "os": "Android 16, One UI 8",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "ip67",
+      "milieu-de-gamme"
+    ],
+    "featured": false,
+    "createdAt": "2025-03-20",
+    "variants": [
+      {
+        "sku": "SGA36-128-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2D2E30"
+        },
+        "storage": 128,
+        "stockQty": 10,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/noir-front.webp",
+          "/products/samsung-galaxy-a36-5g/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-256-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2D2E30"
+        },
+        "storage": 256,
+        "priceOverride": 69000,
+        "stockQty": 5,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/noir-front.webp",
+          "/products/samsung-galaxy-a36-5g/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-128-L1",
+        "color": {
+          "name": "Lavande",
+          "hex": "#C6BCE0"
+        },
+        "storage": 128,
+        "stockQty": 6,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/lavande-front.webp",
+          "/products/samsung-galaxy-a36-5g/lavande-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-256-L1",
+        "color": {
+          "name": "Lavande",
+          "hex": "#C6BCE0"
+        },
+        "storage": 256,
+        "priceOverride": 69000,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/lavande-front.webp",
+          "/products/samsung-galaxy-a36-5g/lavande-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-128-B2",
+        "color": {
+          "name": "Blanc",
+          "hex": "#EFEFED"
+        },
+        "storage": 128,
+        "stockQty": 7,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/blanc-front.webp",
+          "/products/samsung-galaxy-a36-5g/blanc-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-256-B2",
+        "color": {
+          "name": "Blanc",
+          "hex": "#EFEFED"
+        },
+        "storage": 256,
+        "priceOverride": 69000,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/blanc-front.webp",
+          "/products/samsung-galaxy-a36-5g/blanc-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-128-CV3",
+        "color": {
+          "name": "Citron vert",
+          "hex": "#D6E6A8"
+        },
+        "storage": 128,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/citron-vert-front.webp",
+          "/products/samsung-galaxy-a36-5g/citron-vert-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA36-256-CV3",
+        "color": {
+          "name": "Citron vert",
+          "hex": "#D6E6A8"
+        },
+        "storage": 256,
+        "priceOverride": 69000,
+        "stockQty": 1,
+        "images": [
+          "/products/samsung-galaxy-a36-5g/citron-vert-front.webp",
+          "/products/samsung-galaxy-a36-5g/citron-vert-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p10",
+    "slug": "samsung-galaxy-a16",
+    "category": "phones",
+    "brand": "Samsung",
+    "model": "Galaxy A16",
+    "name": "Galaxy A16",
+    "description": "Un grand écran Super AMOLED, 5 000 mAh et 6 ans de mises à jour Android à petit prix.",
+    "images": [
+      "/products/samsung-galaxy-a16/noir-front.webp",
+      "/products/samsung-galaxy-a16/noir-back.webp"
+    ],
+    "basePrice": 33000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,7\" Super AMOLED, 90 Hz",
+      "chipset": "MediaTek Helio G99",
+      "ram": 4,
+      "storage": "128 Go / 256 Go, microSD",
+      "battery": "5 000 mAh, charge 25 W",
+      "mainCamera": "50 MP + 5 MP ultra grand-angle + 2 MP macro",
+      "frontCamera": "13 MP",
+      "os": "Android 15, One UI 7",
+      "network": "4G, Wi-Fi 5, double SIM"
+    },
+    "tags": [
+      "4g",
+      "petit-prix"
+    ],
+    "featured": false,
+    "createdAt": "2025-01-10",
+    "variants": [
+      {
+        "sku": "SGA16-128-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2D2E30"
+        },
+        "storage": 128,
+        "stockQty": 15,
+        "images": [
+          "/products/samsung-galaxy-a16/noir-front.webp",
+          "/products/samsung-galaxy-a16/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA16-256-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2D2E30"
+        },
+        "storage": 256,
+        "priceOverride": 38000,
+        "stockQty": 6,
+        "images": [
+          "/products/samsung-galaxy-a16/noir-front.webp",
+          "/products/samsung-galaxy-a16/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA16-128-G1",
+        "color": {
+          "name": "Gris",
+          "hex": "#9C9DA0"
+        },
+        "storage": 128,
+        "stockQty": 9,
+        "images": [
+          "/products/samsung-galaxy-a16/gris-front.webp",
+          "/products/samsung-galaxy-a16/gris-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA16-256-G1",
+        "color": {
+          "name": "Gris",
+          "hex": "#9C9DA0"
+        },
+        "storage": 256,
+        "priceOverride": 38000,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-a16/gris-front.webp",
+          "/products/samsung-galaxy-a16/gris-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA16-128-VC2",
+        "color": {
+          "name": "Vert clair",
+          "hex": "#C9DDC4"
+        },
+        "storage": 128,
+        "stockQty": 6,
+        "images": [
+          "/products/samsung-galaxy-a16/vert-clair-front.webp",
+          "/products/samsung-galaxy-a16/vert-clair-back.webp"
+        ]
+      },
+      {
+        "sku": "SGA16-256-VC2",
+        "color": {
+          "name": "Vert clair",
+          "hex": "#C9DDC4"
+        },
+        "storage": 256,
+        "priceOverride": 38000,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-a16/vert-clair-front.webp",
+          "/products/samsung-galaxy-a16/vert-clair-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p11",
+    "slug": "samsung-galaxy-s23-ultra-occasion",
+    "category": "phones",
+    "brand": "Samsung",
+    "model": "Galaxy S23 Ultra",
+    "name": "Galaxy S23 Ultra",
+    "description": "Galaxy S23 Ultra d'occasion en excellent état, testé et nettoyé en boutique. Capteur 200 MP, S Pen et zoom 10×. Garantie boutique 6 mois.",
+    "images": [
+      "/products/samsung-galaxy-s23-ultra-occasion/noir-fantome-front.webp",
+      "/products/samsung-galaxy-s23-ultra-occasion/noir-fantome-back.webp"
+    ],
+    "basePrice": 125000,
+    "condition": "used",
+    "specs": {
+      "screen": "6,8\" Dynamic AMOLED 2X, 120 Hz",
+      "chipset": "Snapdragon 8 Gen 2 for Galaxy",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "5 000 mAh (≥ 90 % de capacité), charge 45 W",
+      "mainCamera": "200 MP + 12 MP ultra grand-angle + 10 MP 3× + 10 MP 10×",
+      "frontCamera": "12 MP",
+      "os": "Android 16, One UI 8",
+      "network": "5G, Wi-Fi 6E, double SIM"
+    },
+    "tags": [
+      "occasion",
+      "reconditionne",
+      "5g",
+      "s-pen",
+      "photo"
+    ],
+    "featured": false,
+    "createdAt": "2026-08-02",
+    "variants": [
+      {
+        "sku": "SGS23U-OCC-256-NF0",
+        "color": {
+          "name": "Noir fantôme",
+          "hex": "#2A2A2C"
+        },
+        "storage": 256,
+        "stockQty": 2,
+        "images": [
+          "/products/samsung-galaxy-s23-ultra-occasion/noir-fantome-front.webp",
+          "/products/samsung-galaxy-s23-ultra-occasion/noir-fantome-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS23U-OCC-512-NF0",
+        "color": {
+          "name": "Noir fantôme",
+          "hex": "#2A2A2C"
+        },
+        "storage": 512,
+        "priceOverride": 139000,
+        "stockQty": 1,
+        "images": [
+          "/products/samsung-galaxy-s23-ultra-occasion/noir-fantome-front.webp",
+          "/products/samsung-galaxy-s23-ultra-occasion/noir-fantome-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS23U-OCC-256-V1",
+        "color": {
+          "name": "Vert",
+          "hex": "#6E7F6A"
+        },
+        "storage": 256,
+        "stockQty": 1,
+        "images": [
+          "/products/samsung-galaxy-s23-ultra-occasion/vert-front.webp",
+          "/products/samsung-galaxy-s23-ultra-occasion/vert-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS23U-OCC-512-V1",
+        "color": {
+          "name": "Vert",
+          "hex": "#6E7F6A"
+        },
+        "storage": 512,
+        "priceOverride": 139000,
+        "stockQty": 0,
+        "images": [
+          "/products/samsung-galaxy-s23-ultra-occasion/vert-front.webp",
+          "/products/samsung-galaxy-s23-ultra-occasion/vert-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS23U-OCC-256-C2",
+        "color": {
+          "name": "Crème",
+          "hex": "#EDE6D6"
+        },
+        "storage": 256,
+        "stockQty": 3,
+        "images": [
+          "/products/samsung-galaxy-s23-ultra-occasion/creme-front.webp",
+          "/products/samsung-galaxy-s23-ultra-occasion/creme-back.webp"
+        ]
+      },
+      {
+        "sku": "SGS23U-OCC-512-C2",
+        "color": {
+          "name": "Crème",
+          "hex": "#EDE6D6"
+        },
+        "storage": 512,
+        "priceOverride": 139000,
+        "stockQty": 0,
+        "images": [
+          "/products/samsung-galaxy-s23-ultra-occasion/creme-front.webp",
+          "/products/samsung-galaxy-s23-ultra-occasion/creme-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p12",
+    "slug": "xiaomi-15t-pro",
+    "category": "phones",
+    "brand": "Xiaomi",
+    "model": "Xiaomi 15T Pro",
+    "name": "Xiaomi 15T Pro",
+    "description": "Optique Leica, téléobjectif périscopique 5× et Dimensity 9400+ : le 15T Pro offre des performances de flagship avec une charge 90 W qui remplit la batterie 5 500 mAh en un rien de temps.",
+    "tagline": "Optique Leica, zoom 5×, charge 90 W.",
+    "images": [
+      "/products/xiaomi-15t-pro/noir-front.webp",
+      "/products/xiaomi-15t-pro/noir-back.webp"
+    ],
+    "basePrice": 124000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,83\" AMOLED 1,5K, 144 Hz",
+      "chipset": "MediaTek Dimensity 9400+",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "5 500 mAh, HyperCharge 90 W",
+      "mainCamera": "Leica 50 MP + 50 MP téléobjectif 5× + 12 MP ultra grand-angle",
+      "frontCamera": "32 MP",
+      "os": "Android 16, HyperOS 3",
+      "network": "5G, Wi-Fi 7, double SIM + eSIM"
+    },
+    "tags": [
+      "5g",
+      "leica",
+      "photo",
+      "charge-rapide"
+    ],
+    "featured": true,
+    "createdAt": "2025-10-02",
+    "variants": [
+      {
+        "sku": "XM15TP-256-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2A2B2D"
+        },
+        "storage": 256,
+        "stockQty": 7,
+        "images": [
+          "/products/xiaomi-15t-pro/noir-front.webp",
+          "/products/xiaomi-15t-pro/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "XM15TP-512-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#2A2B2D"
+        },
+        "storage": 512,
+        "priceOverride": 139000,
+        "stockQty": 3,
+        "images": [
+          "/products/xiaomi-15t-pro/noir-front.webp",
+          "/products/xiaomi-15t-pro/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "XM15TP-256-G1",
+        "color": {
+          "name": "Gris",
+          "hex": "#8E9093"
+        },
+        "storage": 256,
+        "stockQty": 5,
+        "images": [
+          "/products/xiaomi-15t-pro/gris-front.webp",
+          "/products/xiaomi-15t-pro/gris-back.webp"
+        ]
+      },
+      {
+        "sku": "XM15TP-512-G1",
+        "color": {
+          "name": "Gris",
+          "hex": "#8E9093"
+        },
+        "storage": 512,
+        "priceOverride": 139000,
+        "stockQty": 2,
+        "images": [
+          "/products/xiaomi-15t-pro/gris-front.webp",
+          "/products/xiaomi-15t-pro/gris-back.webp"
+        ]
+      },
+      {
+        "sku": "XM15TP-256-OM2",
+        "color": {
+          "name": "Or moka",
+          "hex": "#B89A7A"
+        },
+        "storage": 256,
+        "stockQty": 4,
+        "images": [
+          "/products/xiaomi-15t-pro/or-moka-front.webp",
+          "/products/xiaomi-15t-pro/or-moka-back.webp"
+        ]
+      },
+      {
+        "sku": "XM15TP-512-OM2",
+        "color": {
+          "name": "Or moka",
+          "hex": "#B89A7A"
+        },
+        "storage": 512,
+        "priceOverride": 139000,
+        "stockQty": 1,
+        "images": [
+          "/products/xiaomi-15t-pro/or-moka-front.webp",
+          "/products/xiaomi-15t-pro/or-moka-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p13",
+    "slug": "redmi-note-14-pro-5g",
+    "category": "phones",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 14 Pro+ 5G",
+    "name": "Redmi Note 14 Pro+ 5G",
+    "description": "Capteur 200 MP, charge HyperCharge 120 W et écran AMOLED incurvé 120 Hz : le Redmi le plus abouti, certifié IP68.",
+    "images": [
+      "/products/redmi-note-14-pro-5g/noir-minuit-front.webp",
+      "/products/redmi-note-14-pro-5g/noir-minuit-back.webp"
+    ],
+    "basePrice": 72000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,67\" AMOLED 1,5K incurvé, 120 Hz",
+      "chipset": "Snapdragon 7s Gen 3",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "5 110 mAh, HyperCharge 120 W",
+      "mainCamera": "200 MP + 8 MP ultra grand-angle + 2 MP macro",
+      "frontCamera": "20 MP",
+      "os": "Android 15, HyperOS 2",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "ip68",
+      "charge-rapide",
+      "milieu-de-gamme"
+    ],
+    "featured": false,
+    "createdAt": "2025-01-15",
+    "variants": [
+      {
+        "sku": "RN14PP-256-NM0",
+        "color": {
+          "name": "Noir minuit",
+          "hex": "#232427"
+        },
+        "storage": 256,
+        "stockQty": 9,
+        "images": [
+          "/products/redmi-note-14-pro-5g/noir-minuit-front.webp",
+          "/products/redmi-note-14-pro-5g/noir-minuit-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14PP-512-NM0",
+        "color": {
+          "name": "Noir minuit",
+          "hex": "#232427"
+        },
+        "storage": 512,
+        "priceOverride": 82000,
+        "stockQty": 4,
+        "images": [
+          "/products/redmi-note-14-pro-5g/noir-minuit-front.webp",
+          "/products/redmi-note-14-pro-5g/noir-minuit-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14PP-256-BG1",
+        "color": {
+          "name": "Bleu givré",
+          "hex": "#B7C9DC"
+        },
+        "storage": 256,
+        "stockQty": 6,
+        "images": [
+          "/products/redmi-note-14-pro-5g/bleu-givre-front.webp",
+          "/products/redmi-note-14-pro-5g/bleu-givre-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14PP-512-BG1",
+        "color": {
+          "name": "Bleu givré",
+          "hex": "#B7C9DC"
+        },
+        "storage": 512,
+        "priceOverride": 82000,
+        "stockQty": 2,
+        "images": [
+          "/products/redmi-note-14-pro-5g/bleu-givre-front.webp",
+          "/products/redmi-note-14-pro-5g/bleu-givre-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14PP-256-VL2",
+        "color": {
+          "name": "Violet lavande",
+          "hex": "#B8A6D6"
+        },
+        "storage": 256,
+        "stockQty": 5,
+        "images": [
+          "/products/redmi-note-14-pro-5g/violet-lavande-front.webp",
+          "/products/redmi-note-14-pro-5g/violet-lavande-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14PP-512-VL2",
+        "color": {
+          "name": "Violet lavande",
+          "hex": "#B8A6D6"
+        },
+        "storage": 512,
+        "priceOverride": 82000,
+        "stockQty": 0,
+        "images": [
+          "/products/redmi-note-14-pro-5g/violet-lavande-front.webp",
+          "/products/redmi-note-14-pro-5g/violet-lavande-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p14",
+    "slug": "redmi-note-14",
+    "category": "phones",
+    "brand": "Xiaomi",
+    "model": "Redmi Note 14",
+    "name": "Redmi Note 14",
+    "description": "Écran AMOLED 120 Hz, capteur 108 MP et batterie 5 500 mAh : le best-seller qui va à l'essentiel.",
+    "images": [
+      "/products/redmi-note-14/noir-minuit-front.webp",
+      "/products/redmi-note-14/noir-minuit-back.webp"
+    ],
+    "basePrice": 36000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,67\" AMOLED, 120 Hz",
+      "chipset": "MediaTek Helio G99-Ultra",
+      "ram": 8,
+      "storage": "128 Go / 256 Go, microSD",
+      "battery": "5 500 mAh, charge 33 W",
+      "mainCamera": "108 MP + 2 MP macro + 2 MP profondeur",
+      "frontCamera": "20 MP",
+      "os": "Android 15, HyperOS 2",
+      "network": "4G, Wi-Fi 5, double SIM"
+    },
+    "tags": [
+      "4g",
+      "petit-prix",
+      "best-seller"
+    ],
+    "featured": false,
+    "createdAt": "2025-01-15",
+    "variants": [
+      {
+        "sku": "RN14-128-NM0",
+        "color": {
+          "name": "Noir minuit",
+          "hex": "#232427"
+        },
+        "storage": 128,
+        "stockQty": 20,
+        "images": [
+          "/products/redmi-note-14/noir-minuit-front.webp",
+          "/products/redmi-note-14/noir-minuit-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-256-NM0",
+        "color": {
+          "name": "Noir minuit",
+          "hex": "#232427"
+        },
+        "storage": 256,
+        "priceOverride": 40500,
+        "stockQty": 8,
+        "images": [
+          "/products/redmi-note-14/noir-minuit-front.webp",
+          "/products/redmi-note-14/noir-minuit-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-128-VB1",
+        "color": {
+          "name": "Violet brume",
+          "hex": "#BDB0D2"
+        },
+        "storage": 128,
+        "stockQty": 7,
+        "images": [
+          "/products/redmi-note-14/violet-brume-front.webp",
+          "/products/redmi-note-14/violet-brume-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-256-VB1",
+        "color": {
+          "name": "Violet brume",
+          "hex": "#BDB0D2"
+        },
+        "storage": 256,
+        "priceOverride": 40500,
+        "stockQty": 3,
+        "images": [
+          "/products/redmi-note-14/violet-brume-front.webp",
+          "/products/redmi-note-14/violet-brume-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-128-VC2",
+        "color": {
+          "name": "Vert citron",
+          "hex": "#CFE3A6"
+        },
+        "storage": 128,
+        "stockQty": 6,
+        "images": [
+          "/products/redmi-note-14/vert-citron-front.webp",
+          "/products/redmi-note-14/vert-citron-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-256-VC2",
+        "color": {
+          "name": "Vert citron",
+          "hex": "#CFE3A6"
+        },
+        "storage": 256,
+        "priceOverride": 40500,
+        "stockQty": 0,
+        "images": [
+          "/products/redmi-note-14/vert-citron-front.webp",
+          "/products/redmi-note-14/vert-citron-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-128-BO3",
+        "color": {
+          "name": "Bleu océan",
+          "hex": "#4F7FA8"
+        },
+        "storage": 128,
+        "stockQty": 8,
+        "images": [
+          "/products/redmi-note-14/bleu-ocean-front.webp",
+          "/products/redmi-note-14/bleu-ocean-back.webp"
+        ]
+      },
+      {
+        "sku": "RN14-256-BO3",
+        "color": {
+          "name": "Bleu océan",
+          "hex": "#4F7FA8"
+        },
+        "storage": 256,
+        "priceOverride": 40500,
+        "stockQty": 4,
+        "images": [
+          "/products/redmi-note-14/bleu-ocean-front.webp",
+          "/products/redmi-note-14/bleu-ocean-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p15",
+    "slug": "poco-x7-pro",
+    "category": "phones",
+    "brand": "Xiaomi",
+    "model": "POCO X7 Pro",
+    "name": "POCO X7 Pro",
+    "description": "Le monstre de performance à prix contenu : Dimensity 8400-Ultra, écran 1,5K 120 Hz et batterie 6 000 mAh avec charge 90 W.",
+    "images": [
+      "/products/poco-x7-pro/noir-front.webp",
+      "/products/poco-x7-pro/noir-back.webp"
+    ],
+    "basePrice": 68000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,67\" AMOLED 1,5K, 120 Hz",
+      "chipset": "MediaTek Dimensity 8400-Ultra",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "6 000 mAh, HyperCharge 90 W",
+      "mainCamera": "50 MP + 8 MP ultra grand-angle",
+      "frontCamera": "20 MP",
+      "os": "Android 15, HyperOS 2",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "gaming",
+      "charge-rapide"
+    ],
+    "featured": false,
+    "createdAt": "2025-01-20",
+    "variants": [
+      {
+        "sku": "PCX7P-256-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#26272A"
+        },
+        "storage": 256,
+        "stockQty": 8,
+        "images": [
+          "/products/poco-x7-pro/noir-front.webp",
+          "/products/poco-x7-pro/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "PCX7P-512-N0",
+        "color": {
+          "name": "Noir",
+          "hex": "#26272A"
+        },
+        "storage": 512,
+        "priceOverride": 76000,
+        "stockQty": 3,
+        "images": [
+          "/products/poco-x7-pro/noir-front.webp",
+          "/products/poco-x7-pro/noir-back.webp"
+        ]
+      },
+      {
+        "sku": "PCX7P-256-V1",
+        "color": {
+          "name": "Vert",
+          "hex": "#4E6B57"
+        },
+        "storage": 256,
+        "stockQty": 4,
+        "images": [
+          "/products/poco-x7-pro/vert-front.webp",
+          "/products/poco-x7-pro/vert-back.webp"
+        ]
+      },
+      {
+        "sku": "PCX7P-512-V1",
+        "color": {
+          "name": "Vert",
+          "hex": "#4E6B57"
+        },
+        "storage": 512,
+        "priceOverride": 76000,
+        "stockQty": 2,
+        "images": [
+          "/products/poco-x7-pro/vert-front.webp",
+          "/products/poco-x7-pro/vert-back.webp"
+        ]
+      },
+      {
+        "sku": "PCX7P-256-J2",
+        "color": {
+          "name": "Jaune",
+          "hex": "#E9C74A"
+        },
+        "storage": 256,
+        "stockQty": 3,
+        "images": [
+          "/products/poco-x7-pro/jaune-front.webp",
+          "/products/poco-x7-pro/jaune-back.webp"
+        ]
+      },
+      {
+        "sku": "PCX7P-512-J2",
+        "color": {
+          "name": "Jaune",
+          "hex": "#E9C74A"
+        },
+        "storage": 512,
+        "priceOverride": 76000,
+        "stockQty": 1,
+        "images": [
+          "/products/poco-x7-pro/jaune-front.webp",
+          "/products/poco-x7-pro/jaune-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p16",
+    "slug": "oppo-reno14-5g",
+    "category": "phones",
+    "brand": "Oppo",
+    "model": "Reno14 5G",
+    "name": "Oppo Reno14 5G",
+    "description": "Téléobjectif 3,5× 50 MP, caméra selfie 50 MP et batterie 6 000 mAh dans un design fin et élégant, étanche IP69.",
+    "images": [
+      "/products/oppo-reno14-5g/vert-foret-front.webp",
+      "/products/oppo-reno14-5g/vert-foret-back.webp"
+    ],
+    "basePrice": 85000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,59\" AMOLED, 120 Hz",
+      "chipset": "MediaTek Dimensity 8350",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "6 000 mAh, SUPERVOOC 80 W",
+      "mainCamera": "50 MP + 50 MP téléobjectif 3,5× + 8 MP ultra grand-angle",
+      "frontCamera": "50 MP",
+      "os": "Android 15, ColorOS 15",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "ip69",
+      "selfie",
+      "photo"
+    ],
+    "featured": false,
+    "createdAt": "2025-07-10",
+    "variants": [
+      {
+        "sku": "OPR14-256-VF0",
+        "color": {
+          "name": "Vert forêt",
+          "hex": "#3F5A4C"
+        },
+        "storage": 256,
+        "stockQty": 5,
+        "images": [
+          "/products/oppo-reno14-5g/vert-foret-front.webp",
+          "/products/oppo-reno14-5g/vert-foret-back.webp"
+        ]
+      },
+      {
+        "sku": "OPR14-512-VF0",
+        "color": {
+          "name": "Vert forêt",
+          "hex": "#3F5A4C"
+        },
+        "storage": 512,
+        "priceOverride": 95000,
+        "stockQty": 2,
+        "images": [
+          "/products/oppo-reno14-5g/vert-foret-front.webp",
+          "/products/oppo-reno14-5g/vert-foret-back.webp"
+        ]
+      },
+      {
+        "sku": "OPR14-256-BN1",
+        "color": {
+          "name": "Blanc nacré",
+          "hex": "#EEEAE4"
+        },
+        "storage": 256,
+        "stockQty": 4,
+        "images": [
+          "/products/oppo-reno14-5g/blanc-nacre-front.webp",
+          "/products/oppo-reno14-5g/blanc-nacre-back.webp"
+        ]
+      },
+      {
+        "sku": "OPR14-512-BN1",
+        "color": {
+          "name": "Blanc nacré",
+          "hex": "#EEEAE4"
+        },
+        "storage": 512,
+        "priceOverride": 95000,
+        "stockQty": 1,
+        "images": [
+          "/products/oppo-reno14-5g/blanc-nacre-front.webp",
+          "/products/oppo-reno14-5g/blanc-nacre-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p17",
+    "slug": "oppo-a5-pro-5g",
+    "category": "phones",
+    "brand": "Oppo",
+    "model": "A5 Pro 5G",
+    "name": "Oppo A5 Pro 5G",
+    "description": "Robuste et endurant : certification IP69, résistance aux chutes et batterie 5 800 mAh pour tenir deux jours.",
+    "images": [
+      "/products/oppo-a5-pro-5g/vert-olive-front.webp",
+      "/products/oppo-a5-pro-5g/vert-olive-back.webp"
+    ],
+    "basePrice": 42000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,67\" LCD HD+, 120 Hz",
+      "chipset": "MediaTek Dimensity 6300",
+      "ram": 8,
+      "storage": "128 Go / 256 Go",
+      "battery": "5 800 mAh, SUPERVOOC 45 W",
+      "mainCamera": "50 MP + 2 MP profondeur",
+      "frontCamera": "8 MP",
+      "os": "Android 15, ColorOS 15",
+      "network": "5G, Wi-Fi 5, double SIM"
+    },
+    "tags": [
+      "5g",
+      "ip69",
+      "robuste",
+      "petit-prix"
+    ],
+    "featured": false,
+    "createdAt": "2025-04-18",
+    "variants": [
+      {
+        "sku": "OPA5P-128-VO0",
+        "color": {
+          "name": "Vert olive",
+          "hex": "#6F7550"
+        },
+        "storage": 128,
+        "stockQty": 7,
+        "images": [
+          "/products/oppo-a5-pro-5g/vert-olive-front.webp",
+          "/products/oppo-a5-pro-5g/vert-olive-back.webp"
+        ]
+      },
+      {
+        "sku": "OPA5P-256-VO0",
+        "color": {
+          "name": "Vert olive",
+          "hex": "#6F7550"
+        },
+        "storage": 256,
+        "priceOverride": 47000,
+        "stockQty": 3,
+        "images": [
+          "/products/oppo-a5-pro-5g/vert-olive-front.webp",
+          "/products/oppo-a5-pro-5g/vert-olive-back.webp"
+        ]
+      },
+      {
+        "sku": "OPA5P-128-BM1",
+        "color": {
+          "name": "Brun moka",
+          "hex": "#6B4F3F"
+        },
+        "storage": 128,
+        "stockQty": 5,
+        "images": [
+          "/products/oppo-a5-pro-5g/brun-moka-front.webp",
+          "/products/oppo-a5-pro-5g/brun-moka-back.webp"
+        ]
+      },
+      {
+        "sku": "OPA5P-256-BM1",
+        "color": {
+          "name": "Brun moka",
+          "hex": "#6B4F3F"
+        },
+        "storage": 256,
+        "priceOverride": 47000,
+        "stockQty": 2,
+        "images": [
+          "/products/oppo-a5-pro-5g/brun-moka-front.webp",
+          "/products/oppo-a5-pro-5g/brun-moka-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p18",
+    "slug": "realme-14-pro-5g",
+    "category": "phones",
+    "brand": "Realme",
+    "model": "14 Pro+ 5G",
+    "name": "Realme 14 Pro+ 5G",
+    "description": "Dos qui change de couleur au froid, périscope 3× 50 MP et écran quad-curve 120 Hz : le Realme le plus premium.",
+    "images": [
+      "/products/realme-14-pro-5g/blanc-perle-front.webp",
+      "/products/realme-14-pro-5g/blanc-perle-back.webp"
+    ],
+    "basePrice": 75000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,83\" OLED quad-curve 1,5K, 120 Hz",
+      "chipset": "Snapdragon 7s Gen 3",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "6 000 mAh, charge 80 W",
+      "mainCamera": "50 MP + 50 MP périscope 3× + 8 MP ultra grand-angle",
+      "frontCamera": "32 MP",
+      "os": "Android 15, realme UI 6",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "ip69",
+      "photo"
+    ],
+    "featured": false,
+    "createdAt": "2025-02-12",
+    "variants": [
+      {
+        "sku": "RM14PP-256-BP0",
+        "color": {
+          "name": "Blanc perle",
+          "hex": "#EFEDEA"
+        },
+        "storage": 256,
+        "stockQty": 4,
+        "images": [
+          "/products/realme-14-pro-5g/blanc-perle-front.webp",
+          "/products/realme-14-pro-5g/blanc-perle-back.webp"
+        ]
+      },
+      {
+        "sku": "RM14PP-512-BP0",
+        "color": {
+          "name": "Blanc perle",
+          "hex": "#EFEDEA"
+        },
+        "storage": 512,
+        "priceOverride": 84000,
+        "stockQty": 2,
+        "images": [
+          "/products/realme-14-pro-5g/blanc-perle-front.webp",
+          "/products/realme-14-pro-5g/blanc-perle-back.webp"
+        ]
+      },
+      {
+        "sku": "RM14PP-256-GD1",
+        "color": {
+          "name": "Gris daim",
+          "hex": "#6E6C6A"
+        },
+        "storage": 256,
+        "stockQty": 3,
+        "images": [
+          "/products/realme-14-pro-5g/gris-daim-front.webp",
+          "/products/realme-14-pro-5g/gris-daim-back.webp"
+        ]
+      },
+      {
+        "sku": "RM14PP-512-GD1",
+        "color": {
+          "name": "Gris daim",
+          "hex": "#6E6C6A"
+        },
+        "storage": 512,
+        "priceOverride": 84000,
+        "stockQty": 0,
+        "images": [
+          "/products/realme-14-pro-5g/gris-daim-front.webp",
+          "/products/realme-14-pro-5g/gris-daim-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p19",
+    "slug": "realme-c75",
+    "category": "phones",
+    "brand": "Realme",
+    "model": "C75",
+    "name": "Realme C75",
+    "description": "Batterie géante de 6 000 mAh, écran 90 Hz et résistance IP69 pour moins de 35 000 DA.",
+    "images": [
+      "/products/realme-c75/or-eclair-front.webp",
+      "/products/realme-c75/or-eclair-back.webp"
+    ],
+    "basePrice": 29000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,72\" LCD FHD+, 90 Hz",
+      "chipset": "MediaTek Helio G92 Max",
+      "ram": 8,
+      "storage": "128 Go / 256 Go, microSD",
+      "battery": "6 000 mAh, charge 45 W",
+      "mainCamera": "50 MP",
+      "frontCamera": "8 MP",
+      "os": "Android 14, realme UI 5",
+      "network": "4G, Wi-Fi 5, double SIM"
+    },
+    "tags": [
+      "4g",
+      "petit-prix",
+      "robuste"
+    ],
+    "featured": false,
+    "createdAt": "2025-01-28",
+    "variants": [
+      {
+        "sku": "RMC75-128-OE0",
+        "color": {
+          "name": "Or éclair",
+          "hex": "#D8B45C"
+        },
+        "storage": 128,
+        "stockQty": 11,
+        "images": [
+          "/products/realme-c75/or-eclair-front.webp",
+          "/products/realme-c75/or-eclair-back.webp"
+        ]
+      },
+      {
+        "sku": "RMC75-256-OE0",
+        "color": {
+          "name": "Or éclair",
+          "hex": "#D8B45C"
+        },
+        "storage": 256,
+        "priceOverride": 33000,
+        "stockQty": 5,
+        "images": [
+          "/products/realme-c75/or-eclair-front.webp",
+          "/products/realme-c75/or-eclair-back.webp"
+        ]
+      },
+      {
+        "sku": "RMC75-128-NT1",
+        "color": {
+          "name": "Noir tempête",
+          "hex": "#2A2C30"
+        },
+        "storage": 128,
+        "stockQty": 9,
+        "images": [
+          "/products/realme-c75/noir-tempete-front.webp",
+          "/products/realme-c75/noir-tempete-back.webp"
+        ]
+      },
+      {
+        "sku": "RMC75-256-NT1",
+        "color": {
+          "name": "Noir tempête",
+          "hex": "#2A2C30"
+        },
+        "storage": 256,
+        "priceOverride": 33000,
+        "stockQty": 3,
+        "images": [
+          "/products/realme-c75/noir-tempete-front.webp",
+          "/products/realme-c75/noir-tempete-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "p20",
+    "slug": "honor-400",
+    "category": "phones",
+    "brand": "Honor",
+    "model": "400",
+    "name": "Honor 400",
+    "description": "Capteur principal 200 MP stabilisé, selfie 50 MP et outils IA pour la photo, dans un boîtier fin certifié IP66.",
+    "images": [
+      "/products/honor-400/noir-minuit-front.webp",
+      "/products/honor-400/noir-minuit-back.webp"
+    ],
+    "basePrice": 88000,
+    "condition": "new",
+    "specs": {
+      "screen": "6,55\" AMOLED 1,5K, 120 Hz",
+      "chipset": "Snapdragon 7 Gen 4",
+      "ram": 12,
+      "storage": "256 Go / 512 Go",
+      "battery": "5 300 mAh, SuperCharge 66 W",
+      "mainCamera": "200 MP + 12 MP ultra grand-angle",
+      "frontCamera": "50 MP",
+      "os": "Android 15, MagicOS 9",
+      "network": "5G, Wi-Fi 6, double SIM"
+    },
+    "tags": [
+      "5g",
+      "photo",
+      "selfie"
+    ],
+    "featured": false,
+    "createdAt": "2025-06-05",
+    "variants": [
+      {
+        "sku": "HN400-256-NM0",
+        "color": {
+          "name": "Noir minuit",
+          "hex": "#232427"
+        },
+        "storage": 256,
+        "stockQty": 0,
+        "images": [
+          "/products/honor-400/noir-minuit-front.webp",
+          "/products/honor-400/noir-minuit-back.webp"
+        ]
+      },
+      {
+        "sku": "HN400-512-NM0",
+        "color": {
+          "name": "Noir minuit",
+          "hex": "#232427"
+        },
+        "storage": 512,
+        "priceOverride": 98000,
+        "stockQty": 0,
+        "images": [
+          "/products/honor-400/noir-minuit-front.webp",
+          "/products/honor-400/noir-minuit-back.webp"
+        ]
+      },
+      {
+        "sku": "HN400-256-OD1",
+        "color": {
+          "name": "Or désert",
+          "hex": "#D8C3A0"
+        },
+        "storage": 256,
+        "stockQty": 0,
+        "images": [
+          "/products/honor-400/or-desert-front.webp",
+          "/products/honor-400/or-desert-back.webp"
+        ]
+      },
+      {
+        "sku": "HN400-512-OD1",
+        "color": {
+          "name": "Or désert",
+          "hex": "#D8C3A0"
+        },
+        "storage": 512,
+        "priceOverride": 98000,
+        "stockQty": 0,
+        "images": [
+          "/products/honor-400/or-desert-front.webp",
+          "/products/honor-400/or-desert-back.webp"
+        ]
+      },
+      {
+        "sku": "HN400-256-AM2",
+        "color": {
+          "name": "Argent météore",
+          "hex": "#C8CACD"
+        },
+        "storage": 256,
+        "stockQty": 0,
+        "images": [
+          "/products/honor-400/argent-meteore-front.webp",
+          "/products/honor-400/argent-meteore-back.webp"
+        ]
+      },
+      {
+        "sku": "HN400-512-AM2",
+        "color": {
+          "name": "Argent météore",
+          "hex": "#C8CACD"
+        },
+        "storage": 512,
+        "priceOverride": 98000,
+        "stockQty": 0,
+        "images": [
+          "/products/honor-400/argent-meteore-front.webp",
+          "/products/honor-400/argent-meteore-back.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a01",
+    "slug": "coque-silicone-iphone-17-pro",
+    "category": "accessories",
+    "brand": "Apple",
+    "model": "Coque silicone iPhone 17 Pro",
+    "name": "Coque silicone MagSafe iPhone 17 Pro",
+    "description": "Silicone doux au toucher, intérieur en microfibre et aimants MagSafe intégrés. Compatible iPhone 17 Pro uniquement.",
+    "tagline": "Douce au toucher, compatible MagSafe.",
+    "images": [
+      "/products/coque-silicone-iphone-17-pro/noir.webp"
+    ],
+    "basePrice": 4500,
+    "condition": "new",
+    "tags": [
+      "iphone 17 pro",
+      "magsafe",
+      "coque"
+    ],
+    "featured": false,
+    "createdAt": "2026-09-10",
+    "variants": [
+      {
+        "sku": "COQ17P-NOIR",
+        "color": {
+          "name": "Noir",
+          "hex": "#1C1C1E"
+        },
+        "stockQty": 8,
+        "images": [
+          "/products/coque-silicone-iphone-17-pro/noir.webp"
+        ]
+      },
+      {
+        "sku": "COQ17P-BLEU",
+        "color": {
+          "name": "Bleu marine",
+          "hex": "#2B3A55"
+        },
+        "stockQty": 5,
+        "images": [
+          "/products/coque-silicone-iphone-17-pro/bleu-marine.webp"
+        ]
+      },
+      {
+        "sku": "COQ17P-ORAN",
+        "color": {
+          "name": "Orange",
+          "hex": "#E8702A"
+        },
+        "stockQty": 2,
+        "images": [
+          "/products/coque-silicone-iphone-17-pro/orange.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a02",
+    "slug": "chargeur-samsung-25w",
+    "category": "accessories",
+    "brand": "Samsung",
+    "model": "Chargeur 25 W",
+    "name": "Chargeur rapide Samsung 25 W USB-C",
+    "description": "Charge ultra-rapide 25 W (Super Fast Charging) pour Galaxy S, A et Z. Prise USB-C, câble non inclus.",
+    "tagline": "Super Fast Charging, prise USB-C.",
+    "images": [
+      "/products/chargeur-samsung-25w/blanc.webp"
+    ],
+    "basePrice": 3500,
+    "condition": "new",
+    "tags": [
+      "galaxy",
+      "usb-c",
+      "charge rapide",
+      "chargeur"
+    ],
+    "featured": false,
+    "createdAt": "2026-08-28",
+    "variants": [
+      {
+        "sku": "CHG-SAM25-BL",
+        "color": {
+          "name": "Blanc",
+          "hex": "#F2F2F2"
+        },
+        "stockQty": 2,
+        "images": [
+          "/products/chargeur-samsung-25w/blanc.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a03",
+    "slug": "redmi-buds-6-active",
+    "category": "accessories",
+    "brand": "Xiaomi",
+    "model": "Redmi Buds 6 Active",
+    "name": "Écouteurs Redmi Buds 6 Active",
+    "description": "Écouteurs sans fil Bluetooth 5.4, jusqu'à 30 h d'autonomie avec le boîtier, réduction du bruit en appel.",
+    "tagline": "30 h d'autonomie, Bluetooth 5.4.",
+    "images": [
+      "/products/redmi-buds-6-active/noir.webp"
+    ],
+    "basePrice": 4900,
+    "condition": "new",
+    "tags": [
+      "bluetooth",
+      "ecouteurs",
+      "sans fil"
+    ],
+    "featured": false,
+    "createdAt": "2026-09-05",
+    "variants": [
+      {
+        "sku": "RB6A-NOIR",
+        "color": {
+          "name": "Noir",
+          "hex": "#222222"
+        },
+        "stockQty": 6,
+        "images": [
+          "/products/redmi-buds-6-active/noir.webp"
+        ]
+      },
+      {
+        "sku": "RB6A-BLANC",
+        "color": {
+          "name": "Blanc",
+          "hex": "#F4F4F4"
+        },
+        "stockQty": 0,
+        "images": [
+          "/products/redmi-buds-6-active/blanc.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a04",
+    "slug": "cable-usb-c-baseus-1m",
+    "category": "accessories",
+    "brand": "Baseus",
+    "model": "Câble USB-C 1 m",
+    "name": "Câble USB-C vers USB-C 1 m 100 W",
+    "description": "Câble tressé nylon, charge jusqu'à 100 W et transfert de données. Longueur 1 m.",
+    "images": [
+      "/products/cable-usb-c-baseus-1m/noir.webp"
+    ],
+    "basePrice": 1200,
+    "condition": "new",
+    "tags": [
+      "usb-c",
+      "cable",
+      "charge rapide"
+    ],
+    "featured": false,
+    "createdAt": "2026-07-15",
+    "variants": [
+      {
+        "sku": "CAB-BAS-C1M",
+        "color": {
+          "name": "Noir",
+          "hex": "#2A2A2A"
+        },
+        "stockQty": 25,
+        "images": [
+          "/products/cable-usb-c-baseus-1m/noir.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a05",
+    "slug": "verre-trempe-galaxy-s25",
+    "category": "accessories",
+    "brand": "Générique",
+    "model": "Verre trempé Galaxy S25",
+    "name": "Verre trempé Galaxy S25",
+    "description": "Protection d'écran en verre trempé 9H, bords arrondis 2.5D, pose sans bulles. Compatible Galaxy S25.",
+    "images": [
+      "/products/verre-trempe-galaxy-s25/transparent.webp"
+    ],
+    "basePrice": 800,
+    "condition": "new",
+    "tags": [
+      "galaxy s25",
+      "protection",
+      "verre trempe"
+    ],
+    "featured": false,
+    "createdAt": "2026-07-01",
+    "variants": [
+      {
+        "sku": "VT-S25",
+        "color": {
+          "name": "Transparent",
+          "hex": "#D9E6EE"
+        },
+        "stockQty": 40,
+        "images": [
+          "/products/verre-trempe-galaxy-s25/transparent.webp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a06",
+    "slug": "sandisk-microsd-ultra",
+    "category": "accessories",
+    "brand": "SanDisk",
+    "model": "microSD Ultra",
+    "name": "Carte microSD SanDisk Ultra",
+    "description": "Carte microSDXC classe 10 A1, jusqu'à 150 Mo/s en lecture. Adaptateur SD inclus.",
+    "tagline": "Jusqu'à 150 Mo/s, adaptateur inclus.",
+    "images": [
+      "/products/sandisk-microsd-ultra/gris.webp"
+    ],
+    "basePrice": 1800,
+    "condition": "new",
+    "tags": [
+      "microsd",
+      "memoire",
+      "stockage"
+    ],
+    "featured": false,
+    "createdAt": "2026-06-20",
+    "variants": [
+      {
+        "sku": "SD-ULT-64",
+        "color": {
+          "name": "Gris",
+          "hex": "#8A8D91"
+        },
+        "storage": 64,
+        "stockQty": 12,
+        "images": [
+          "/products/sandisk-microsd-ultra/gris.webp"
+        ]
+      },
+      {
+        "sku": "SD-ULT-128",
+        "color": {
+          "name": "Gris",
+          "hex": "#8A8D91"
+        },
+        "storage": 128,
+        "priceOverride": 2900,
+        "stockQty": 7,
+        "images": [
+          "/products/sandisk-microsd-ultra/gris.webp"
+        ]
+      },
+      {
+        "sku": "SD-ULT-256",
+        "color": {
+          "name": "Gris",
+          "hex": "#8A8D91"
+        },
+        "storage": 256,
+        "priceOverride": 5200,
+        "stockQty": 1,
+        "images": [
+          "/products/sandisk-microsd-ultra/gris.webp"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,141 @@
+@import "tailwindcss";
+@import "../styles/tokens.css";
+
+/* Map design tokens to Tailwind utilities. Components use these utilities only — never raw values.
+   Optional extras fall back to values derived from the required contract tokens. */
+@theme inline {
+  /* Drop Tailwind's default palette/shadows/radii/fonts: only token utilities exist. */
+  --color-*: initial;
+  --shadow-*: initial;
+  --drop-shadow-*: initial;
+  --radius-*: initial;
+  --font-*: initial;
+
+  --color-primary: var(--color-primary);
+  --color-primary-fg: var(--color-primary-fg);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-border: var(--color-border, color-mix(in srgb, var(--color-text) 14%, transparent));
+  --color-inverse: var(--color-inverse, var(--color-text));
+  --color-inverse-fg: var(--color-inverse-fg, var(--color-surface));
+  --color-focus: var(--color-focus, var(--color-primary));
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --tracking-heading: var(--tracking-heading, normal);
+  --text-base: var(--font-size-body, 1rem);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-pill: var(--radius-pill, 9999px);
+
+  --shadow-card: var(--shadow-card);
+  --drop-shadow-product: var(--shadow-product, 0 0 0 transparent);
+
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-5: var(--space-5);
+  --spacing-6: var(--space-6);
+  --spacing-7: var(--space-7);
+  --spacing-8: var(--space-8);
+
+  --container-page: var(--container-max, 80rem);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--font-size-body, 1rem);
+    line-height: 1.47;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    letter-spacing: var(--tracking-heading, normal);
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-focus, var(--color-primary));
+    outline-offset: 2px;
+  }
+  html:has(dialog[open]) {
+    overflow: hidden; /* scroll lock while a sheet is open */
+  }
+}
+
+/* WhatsApp FAB lifts above the sticky mobile buy bar when one is on the page. */
+body:has([data-sticky-cta]) [data-fab] {
+  bottom: calc(var(--space-8) + var(--space-3));
+}
+@media (min-width: 768px) {
+  body:has([data-sticky-cta]) [data-fab] {
+    bottom: var(--space-5);
+  }
+}
+
+/* Keep the footer reachable above the sticky mobile buy bar. */
+@media (max-width: 767px) {
+  body:has([data-sticky-cta]) {
+    padding-bottom: calc(var(--space-8) - var(--space-3));
+  }
+}
+
+/* No floating button over form fields (checkout, contact). */
+body:has([data-hide-fab]) [data-fab] {
+  display: none;
+}
+
+/* Markdown pages (content/pages/*.md) — token-styled, no typography plugin. */
+.prose > * + * {
+  margin-top: var(--space-4);
+}
+.prose h2 {
+  margin-top: var(--space-7);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.prose ul,
+.prose ol {
+  padding-inline-start: var(--space-5);
+}
+.prose ul {
+  list-style: disc;
+}
+.prose ol {
+  list-style: decimal;
+}
+.prose li + li {
+  margin-top: var(--space-2);
+}
+.prose strong {
+  font-weight: 600;
+}
+.prose a {
+  color: var(--color-primary);
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prose th,
+.prose td {
+  border-bottom: 1px solid var(--color-border, color-mix(in srgb, var(--color-text) 14%, transparent));
+  padding: var(--space-3) var(--space-2);
+  text-align: start;
+}

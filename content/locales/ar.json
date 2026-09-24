@@ -1,0 +1,30 @@
+{
+  "_note": "STUB — partial translation; missing keys fall back to fr.json. Complete before setting locale: \"ar\".",
+  "nav": {
+    "home": "الرئيسية",
+    "catalog": "المتجر",
+    "used": "مستعمل",
+    "contact": "اتصل بنا",
+    "about": "من نحن",
+    "warranty": "الضمان",
+    "menu": "القائمة",
+    "close": "إغلاق",
+    "cart": "السلة",
+    "skip": "انتقل إلى المحتوى"
+  },
+  "product": {
+    "addToCart": "أضف إلى السلة",
+    "inStock": "متوفر",
+    "outOfStock": "نفد المخزون",
+    "new": "جديد",
+    "used": "مستعمل"
+  },
+  "cart": {
+    "title": "السلة",
+    "empty": "سلتك فارغة.",
+    "checkout": "إتمام الطلب"
+  },
+  "errors": {
+    "phone": "رقم غير صالح. مثال: 0555 12 34 56"
+  }
+}
