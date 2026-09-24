@@ -324,8 +324,8 @@
       "call": "Appeler",
       "whatsapp": "WhatsApp",
       "print": "Imprimer le bon",
-      "moveTo": "Passer en « {status} »",
-      "cancel": "Annuler la commande…",
+      "moveTo": "Confirmer",
+      "cancel": "Annuler",
       "cancelReason": "Motif d'annulation (obligatoire)",
       "cancelConfirm": "Confirmer l'annulation",
       "cancelHint": "Le stock réservé est remis en vente.",
@@ -347,8 +347,7 @@
         "readyDelivery": "Bonjour {name}, votre commande {ref} est en route. Le livreur vous appellera. Montant à payer à la livraison : {total}.",
         "done": "Merci {name} pour votre achat chez {store} ! Écrivez-nous ici pour toute question.",
         "cancelled": "Bonjour {name}, votre commande {ref} chez {store} a été annulée. N'hésitez pas à nous recontacter."
-      },
-      "status": "Statut"
+      }
     },
     "products": {
       "title": "Produits",

@@ -70,6 +70,10 @@
     letter-spacing: var(--tracking-heading, normal);
     text-wrap: balance;
   }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer; /* Tailwind v4 preflight resets buttons to the default cursor */
+  }
   :focus-visible {
     outline: 2px solid var(--color-focus, var(--color-primary));
     outline-offset: 2px;

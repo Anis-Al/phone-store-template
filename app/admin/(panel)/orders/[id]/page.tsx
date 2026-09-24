@@ -6,7 +6,7 @@ import { ActionForm } from "@/components/admin/ActionForm";
 import { PrintButton } from "@/components/admin/PrintButton";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { SubmitButton } from "@/components/admin/SubmitButton";
-import { buttonClass } from "@/components/ui/button";
+import { Button, buttonClass } from "@/components/ui/button";
 import { inputClass } from "@/components/ui/field";
 import { requireRole } from "@/lib/auth";
 import { storeConfig } from "@/lib/config/store.config";
@@ -55,10 +55,57 @@ export default async function OrderPage({ params }: PageProps<"/admin/orders/[id
         <p className="mt-3 text-sm">{t("admin.orders.slip")}</p>
       </div>
 
-      <div className="flex flex-wrap items-center gap-3">
-        <h1 className="text-3xl font-semibold">{order.id}</h1>
-        <StatusBadge status={order.status} />
-        <span className="text-sm text-text-muted">{formatDate(order.createdAt)}</span>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          <h1 className="text-3xl font-semibold">{order.id}</h1>
+          <span className="print:hidden">
+            <StatusBadge status={order.status} />
+          </span>
+          <span className="text-sm text-text-muted">{formatDate(order.createdAt)}</span>
+        </div>
+        {next.length === 0 ? (
+          <p className="text-sm text-text-muted print:hidden">{t("admin.orders.final")}</p>
+        ) : (
+          <div className="flex flex-wrap items-start gap-2 print:hidden">
+            {next
+              .filter((s) => s !== "cancelled")
+              .map((s) => (
+                <ActionForm key={s} action={setStatus}>
+                  <input type="hidden" name="id" value={order.id} />
+                  <input type="hidden" name="next" value={s} />
+                  <SubmitButton>{t("admin.orders.moveTo")}</SubmitButton>
+                </ActionForm>
+              ))}
+            {next.includes("cancelled") && (
+              <>
+                <Button variant="danger" popoverTarget="cancel-order">
+                  {t("admin.orders.cancel")}
+                </Button>
+                <div
+                  id="cancel-order"
+                  popover="auto"
+                  className="m-auto w-[calc(100%-2*var(--space-4))] max-w-md rounded-lg border border-border bg-surface p-4 text-text backdrop:bg-inverse/40"
+                >
+                  <ActionForm action={setStatus} className="flex flex-col gap-2">
+                    <input type="hidden" name="id" value={order.id} />
+                    <input type="hidden" name="next" value="cancelled" />
+                    <label htmlFor="reason" className="text-sm font-semibold">
+                      {t("admin.orders.cancelReason")}
+                    </label>
+                    <textarea id="reason" name="note" required minLength={3} maxLength={500} rows={2} className={inputClass()} />
+                    <p className="text-sm text-text-muted">{t("admin.orders.cancelHint")}</p>
+                    <div className="flex flex-wrap gap-2">
+                      <SubmitButton variant="danger">{t("admin.orders.cancelConfirm")}</SubmitButton>
+                      <Button variant="ghost" popoverTarget="cancel-order" popoverTargetAction="hide">
+                        {t("nav.close")}
+                      </Button>
+                    </div>
+                  </ActionForm>
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </div>
 
       <section className={box} aria-labelledby="customer">
@@ -122,48 +169,9 @@ export default async function OrderPage({ params }: PageProps<"/admin/orders/[id
         </dl>
       </section>
 
-      <section className={`${box} print:hidden`} aria-labelledby="status">
-        <h2 id="status" className="font-semibold">{t("admin.orders.status")}</h2>
-        {next.length === 0 ? (
-          <p className="text-sm text-text-muted">{t("admin.orders.final")}</p>
-        ) : (
-          <>
-            <div className="flex flex-wrap gap-2">
-              {next
-                .filter((s) => s !== "cancelled")
-                .map((s) => (
-                  <ActionForm key={s} action={setStatus}>
-                    <input type="hidden" name="id" value={order.id} />
-                    <input type="hidden" name="next" value={s} />
-                    <SubmitButton>{t("admin.orders.moveTo", { status: label(s) })}</SubmitButton>
-                  </ActionForm>
-                ))}
-            </div>
-            {next.includes("cancelled") && (
-              <details className="rounded-md border border-border">
-                <summary className="flex min-h-11 cursor-pointer items-center px-3 text-danger">{t("admin.orders.cancel")}</summary>
-                <ActionForm action={setStatus} className="flex flex-col gap-2 p-3">
-                  <input type="hidden" name="id" value={order.id} />
-                  <input type="hidden" name="next" value="cancelled" />
-                  <label htmlFor="reason" className="text-sm font-semibold">
-                    {t("admin.orders.cancelReason")}
-                  </label>
-                  <textarea id="reason" name="note" required minLength={3} maxLength={500} rows={2} className={inputClass()} />
-                  <p className="text-sm text-text-muted">{t("admin.orders.cancelHint")}</p>
-                  <div>
-                    <SubmitButton variant="secondary">{t("admin.orders.cancelConfirm")}</SubmitButton>
-                  </div>
-                </ActionForm>
-              </details>
-            )}
-          </>
-        )}
-      </section>
-
-      <section className={box} aria-labelledby="note">
+      <section className={`${box} print:hidden`} aria-labelledby="note">
         <h2 id="note" className="font-semibold">{t("admin.orders.note")}</h2>
-        <p className="hidden whitespace-pre-line print:block">{order.note}</p>
-        <ActionForm action={saveNote} className="flex flex-col gap-2 print:hidden">
+        <ActionForm action={saveNote} className="flex flex-col gap-2">
           <input type="hidden" name="id" value={order.id} />
           <label htmlFor="note-text" className="sr-only">
             {t("admin.orders.note")}

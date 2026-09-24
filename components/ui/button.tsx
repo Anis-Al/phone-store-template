@@ -7,6 +7,7 @@ const variants = {
   "secondary-on-dark": "border border-accent text-accent bg-transparent", // accent = link blue for dark surfaces
   inverse: "bg-inverse text-inverse-fg",
   ghost: "text-primary bg-transparent",
+  danger: "border border-danger text-danger bg-transparent",
 } as const;
 
 const sizes = {
